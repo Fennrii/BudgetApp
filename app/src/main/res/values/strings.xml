@@ -1,3 +1,56 @@
 <resources>
-    <string name="app_name">BudgetApp</string>
+    //Welcome Page Texts
+    <string name="thanks_txt">Thank you for installing our          Lite Budgeting App!</string>
+    <string name="tipFor_w1">Click the Setup button to start filling out our setup form.</string>
+    <string name="btnTo_setupForm">Setup</string>
+    //End
+
+
+
+    //Setup Page 1 Texts
+    <string name="app_name">Lite Budgeting</string>
+    <string name="finance_txt">Setup Your Finances</string>
+    <string name="question1_txt">1) What form of payment do you receive?</string>
+    <string name="question2_txt">2) What type of pay period does your company have?</string>
+    //End
+
+    //Pay Period Spinner Text
+    <string-array name="pay_periods">
+        //Needs to be changed
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Bi-Weekly</item>
+        <item>Semi-Monthly</item>
+        <item>Monthly</item>
+        <item>Salary</item>
+    </string-array>
+    <string name="spinner_description">Enter in your Pay Period</string>
+    //End
+
+
+    //Payment types
+    <string name="hourly_pay">Hourly</string>
+    <string name="salary_pay">Salary</string>
+    <string name="government_pay">Government Assistance</string>
+    //End
+
+
+    //Page Number Text
+    <string name="setup_page1">1/?</string>
+    <string name="setup_page2">2/?</string>
+    <string name="setup_page3">3/?</string>
+    <string name="setup_page4">4/?</string>
+    <string name="setup_page5">5/?</string>
+    //End
+
+
+    //Setup Pages Buttons Text
+    <string name="btnNext">Next</string>
+    <string name="btnBack">Back</string>
+    <string name="btnSubmitForm">Submit</string>
+    //End
+
+
+
+
 </resources>

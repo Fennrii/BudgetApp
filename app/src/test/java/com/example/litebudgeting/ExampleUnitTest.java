@@ -1,4 +1,4 @@
-package com.zybooks.budgetapp;
+package com.example.litebudgeting;
 
 import org.junit.Test;
 
