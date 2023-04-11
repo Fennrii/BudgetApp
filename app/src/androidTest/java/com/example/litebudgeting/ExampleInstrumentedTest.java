@@ -1,4 +1,4 @@
-package com.zybooks.budgetapp;
+package com.example.litebudgeting;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.zybooks.budgetapp", appContext.getPackageName());
+        assertEquals("com.example.litebudgeting", appContext.getPackageName());
     }
 }
