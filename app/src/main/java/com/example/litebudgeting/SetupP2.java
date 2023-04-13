@@ -23,7 +23,7 @@ public class SetupP2 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SetupP2.this, FinalSetupPage.class));
+                startActivity(new Intent(SetupP2.this, SetupP3.class));
             }
         });
     }

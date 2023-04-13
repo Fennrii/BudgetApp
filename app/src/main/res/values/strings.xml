@@ -22,6 +22,12 @@
     <string name="AC_txt">4) How much do you pay monthly for air conditioning?</string>
     <string name="Car_txt">5) How much do you pay monthly for your car insurance?</string>
 
+    //Setup Page 3 Texts
+    <string name="Health_txt">How much do you pay monthly for health insurance?</string>
+    <string name="Transport_txt">How much do you pay monthly for transportation?</string>
+    <string name="Groc_txt">How much do you pay monthly for groceries?</string>
+    <string name="Loan_txt">What is the minimum amount that you spend on loans per month?</string>
+
     //Pay Period Spinner Text
     <string-array name="pay_periods">
         <item>Weekly</item>
