@@ -64,6 +64,28 @@
     //End
 
 
+    //Setup Pages Buttons Text
+    <string name="btnNext">Next</string>
+    <string name="btnBack">Back</string>
+    <string name="btnSubmitForm">Submit</string>
+    //End
+
+    //Income page text
+    <string name="incomeEnter">Please Enter Your Monthly Income.</string>
+    <string name="extIncome">Enter your extra income/profits</string>
+    <string name="incomeScreentxt">Income</string>
+    <string name="incomeinfo">Please Enter Only Whole Numbers In The Questions Above </string>
+    <string name="enter_here">Enter Here</string>
+    //End
+
+    //Nav Menu
+    <string name="home_icon">Home</string>
+    <string name="income_icon">Income</string>
+    <string name="exp_icon">Expenses</string>
+
+    //End
+
+
 
 
 </resources>
