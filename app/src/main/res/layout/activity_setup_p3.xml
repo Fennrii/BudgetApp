@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetupP3">
+
+    <!--Page Title-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/expenses_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/txtPageTitle2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Health_txt"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="70dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/txtHealth"/>
+
+    <EditText
+        android:id="@+id/Health_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtHealth"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_page3"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/txtPageNumber5"/>
+
+    <TextView
+        android:id="@+id/txtTransport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Transport_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Health_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Transport_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtTransport"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txtGroc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Groc_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Transport_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Groc_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtGroc"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txtLoan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Loan_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Groc_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Loan_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtLoan"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnNext"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp"
+        android:id="@+id/btnNextP4"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnBack"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:id="@+id/btnBackP2"/>
+
+</RelativeLayout>
