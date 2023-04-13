@@ -14,6 +14,14 @@
     <string name="question2_txt">2) What type of pay period does your company have?</string>
     //End
 
+    //Setup Page 2 Texts
+    <string name="expenses_txt">Setup Your Expenses</string>
+    <string name="housing_txt">1) How much do you pay monthly for housing?</string>
+    <string name="water_txt">2) How much do you pay monthly for water?</string>
+    <string name="electric_txt">3) How much do you pay monthly for electricity?</string>
+    <string name="AC_txt">4) How much do you pay monthly for air conditioning?</string>
+    <string name="Car_txt">5) How much do you pay monthly for your car insurance?</string>
+
     //Pay Period Spinner Text
     <string-array name="pay_periods">
         //Needs to be changed
@@ -48,6 +56,7 @@
     <string name="btnNext">Next</string>
     <string name="btnBack">Back</string>
     <string name="btnSubmitForm">Submit</string>
+    <string name="empty_currency">$0.00</string>
     //End
 
 
