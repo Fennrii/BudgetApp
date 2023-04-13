@@ -42,12 +42,22 @@
         android:textStyle="bold"
         android:id="@+id/txtPaymentTypeQ"
         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtPaymentTypeQ_hint"
+        android:layout_below="@+id/txtPaymentTypeQ"
+        android:text="@string/txt_PayType_HInt"
+        android:layout_marginStart="15dp"
+        />
+
+
 
     <RadioGroup
         android:id="@+id/payment_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txtPaymentTypeQ"
+        android:layout_below="@id/txtPaymentTypeQ_hint"
         android:orientation="horizontal"
         android:layout_marginStart="10dp">
 
@@ -96,16 +106,6 @@
         android:contentDescription="@string/spinner_description"
         android:tooltipText="@string/spinner_description"/>
 
-<!--    Hourly questions -->
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/hourly"
-        android:layout_below="@+id/list_payPeriods"
-        android:layout_marginStart="14dp"
-        android:text="@string/hourly_questions"
-        />
 
 <!--    typical work hours-->
 
@@ -113,12 +113,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/hourly_work_txt"
-        android:layout_below="@+id/hourly"
+        android:layout_below="@+id/list_payPeriods"
         android:text="@string/hourly_work_txt"
         android:layout_centerHorizontal="true"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_marginTop="0dp"
+        android:visibility="gone"
         />
 
     <EditText
@@ -128,10 +129,11 @@
         android:ems="3"
         android:importantForAutofill="no"
         android:layout_centerHorizontal="true"
-        android:hint="@string/hr_hint"
+        android:hint="@string/empty_int"
         android:inputType="number"
         android:layout_marginTop="5dp"
         android:id="@+id/hourly_work_edit"
+        android:visibility="gone"
         />
 
 <!--    Pay per hour-->
@@ -145,6 +147,7 @@
         android:layout_below="@id/hourly_work_edit"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
+        android:visibility="gone"
         />
 
     <EditText
@@ -157,7 +160,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:importantForAutofill="no"
-        android:inputType="numberDecimal"/>
+        android:inputType="numberDecimal"
+        android:visibility="gone"/>
 
 
 <!--    Salary/GA Questions-->
@@ -168,6 +172,7 @@
         android:text="@string/salary_questions"
         android:layout_below="@+id/hourly_pay_edit"
         android:layout_marginStart="15dp"
+        android:visibility="gone"
         />
 
     <TextView
@@ -179,6 +184,7 @@
         android:textStyle="bold"
         android:textSize="18sp"
         android:text="@string/Salary_text"
+        android:visibility="gone"
         />
 
     <EditText
@@ -191,6 +197,7 @@
         android:ems="10"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
+        android:visibility="gone"
         />
 
 
@@ -200,11 +207,10 @@
 <!--    Getting current bank balance -->
     <TextView
         android:text="@string/current_cash_txt"
-        android:layout_below="@+id/salary_edit"
+        android:layout_above="@+id/current_cash_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -214,13 +220,14 @@
         android:id="@+id/current_cash_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/current_cash"
-        android:layout_marginTop="9dp"
+        android:layout_above="@+id/btnNextP2"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="@string/empty_currency"
         android:layout_centerHorizontal="true"
         android:importantForAutofill="no"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        />
 
 
     <!--Next Button-->
