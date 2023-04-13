@@ -10,8 +10,8 @@
     //Setup Page 1 Texts
     <string name="app_name">Lite Budgeting</string>
     <string name="finance_txt">Setup Your Finances</string>
-    <string name="question1_txt">1) What form of payment do you receive?</string>
-    <string name="question2_txt">2) What type of pay period does your company have?</string>
+    <string name="question1_txt">What form of payment do you receive?</string>
+    <string name="question2_txt">What type of pay period does your company have?</string>
     //End
 
     //Setup Page 2 Texts
@@ -24,13 +24,9 @@
 
     //Pay Period Spinner Text
     <string-array name="pay_periods">
-        //Needs to be changed
-        <item>Daily</item>
         <item>Weekly</item>
         <item>Bi-Weekly</item>
-        <item>Semi-Monthly</item>
         <item>Monthly</item>
-        <item>Salary</item>
     </string-array>
     <string name="spinner_description">Enter in your Pay Period</string>
     //End
@@ -57,6 +53,14 @@
     <string name="btnBack">Back</string>
     <string name="btnSubmitForm">Submit</string>
     <string name="empty_currency">$0.00</string>
+    <string name="current_cash_txt">How much money do you have in your bank account currently?</string>
+    <string name="cash_input_hint">$10.00</string>
+    <string name="hourly_work_txt">How many hours do you typically work a week?</string>
+    <string name="hr_hint">30</string>
+    <string name="hourly_pay_txt_Q">How much do you get paid per hour?</string>
+    <string name="salary_questions">Salary / Government Assistance questions:</string>
+    <string name="hourly_questions">Hourly questions:</string>
+    <string name="Salary_text">How much is your monthly salary / Government Assistance?</string>
     //End
 
 

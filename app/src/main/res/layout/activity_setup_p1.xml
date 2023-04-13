@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Page one of setups-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -15,17 +16,32 @@
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:id="@+id/txtPageTitle"/>
+        android:id="@+id/txtPageTitle" />
+
+    <!--Page Number-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_page1"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/txtPageNumber1"
+        tools:ignore="RelativeOverlap" />
+
+<!--    Get payment type-->
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/question1_txt"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="70dp"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:id="@+id/txtPaymentTypeQ"/>
+        android:id="@+id/txtPaymentTypeQ"
+        />
 
     <RadioGroup
         android:id="@+id/payment_form"
@@ -56,17 +72,155 @@
 
 
 
-    <!--Page Number-->
+<!-- Pay periods -->
+    <TextView
+        android:id="@+id/txtPayPeriodQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/question2_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/payment_form"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"/>
+
+    <Spinner
+        android:id="@+id/list_payPeriods"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/txtPayPeriodQ"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:spinnerMode="dropdown"
+        android:contentDescription="@string/spinner_description"
+        android:tooltipText="@string/spinner_description"/>
+
+<!--    Hourly questions -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/setup_page1"
+        android:id="@+id/hourly"
+        android:layout_below="@+id/list_payPeriods"
+        android:layout_marginStart="14dp"
+        android:text="@string/hourly_questions"
+        />
+
+<!--    typical work hours-->
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hourly_work_txt"
+        android:layout_below="@+id/hourly"
+        android:text="@string/hourly_work_txt"
+        android:layout_centerHorizontal="true"
         android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/txtPageNumber1"
-        tools:ignore="RelativeOverlap" />
+        android:textStyle="bold"
+        android:layout_marginTop="0dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/hourly_work_txt"
+        android:ems="3"
+        android:importantForAutofill="no"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/hr_hint"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:id="@+id/hourly_work_edit"
+        />
+
+<!--    Pay per hour-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hourly_pay_txt"
+        android:text="@string/hourly_pay_txt_Q"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_below="@id/hourly_work_edit"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/hourly_pay_edit"
+        android:layout_below="@+id/hourly_pay_txt"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"/>
+
+
+<!--    Salary/GA Questions-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salary_questions"
+        android:text="@string/salary_questions"
+        android:layout_below="@+id/hourly_pay_edit"
+        android:layout_marginStart="15dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salary_text"
+        android:layout_below="@+id/salary_questions"
+        android:layout_marginStart="15dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="@string/Salary_text"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/salary_edit"
+        android:layout_below="@+id/salary_text"
+        android:hint="@string/empty_currency"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        />
+
+
+
+
+
+<!--    Getting current bank balance -->
+    <TextView
+        android:text="@string/current_cash_txt"
+        android:layout_below="@+id/salary_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/current_cash"/>
+
+    <EditText
+        android:id="@+id/current_cash_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/current_cash"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:layout_centerHorizontal="true"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal" />
 
 
     <!--Next Button-->
@@ -79,39 +233,5 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/btnNextP2"/>
-
-    <TextView
-        android:id="@+id/txtPayPeriodQ"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/question2_txt"
-        android:textSize="18sp"
-        android:layout_below="@id/payment_form"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:textStyle="bold"/>
-
-    <Spinner
-        android:id="@+id/list_payPeriods"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_below="@id/txtPayPeriodQ"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="10dp"
-        android:spinnerMode="dropdown"
-        android:contentDescription="@string/spinner_description"
-        android:tooltipText="@string/spinner_description"/>
-
-    <TextView
-        android:text="Question 3?????"
-        android:layout_below="@+id/list_payPeriods"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:id="@+id/txtQ"/>
-
 
 </RelativeLayout>
