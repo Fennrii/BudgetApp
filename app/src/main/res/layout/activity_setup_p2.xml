@@ -6,6 +6,39 @@
     android:layout_height="match_parent"
     tools:context=".SetupP2">
 
+    <!--Page Title-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/expenses_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/txtPageTitle2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/housing_txt"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="70dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/txtHousing"/>
+
+    <EditText
+        android:id="@+id/Housing_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtHousing"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,6 +48,98 @@
         android:layout_marginEnd="20dp"
         android:layout_alignParentEnd="true"
         android:id="@+id/txtPageNumber5"/>
+
+    <TextView
+        android:id="@+id/txtWater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/water_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Housing_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Water_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtWater"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txtElec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/electric_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Water_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Elec_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtElec"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txtAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/AC_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/Elec_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/AC_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtAC"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/txtCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Car_txt"
+        android:textSize="18sp"
+        android:layout_below="@id/AC_edit"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/Car_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCar"
+        android:layout_marginTop="9dp"
+        android:ems="10"
+        android:hint="@string/empty_currency"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:layout_width="wrap_content"
