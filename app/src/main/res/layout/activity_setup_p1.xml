@@ -128,7 +128,7 @@
         android:ems="3"
         android:importantForAutofill="no"
         android:layout_centerHorizontal="true"
-        android:hint="@string/hr_hint"
+        android:hint="@string/empty_int"
         android:inputType="number"
         android:layout_marginTop="5dp"
         android:id="@+id/hourly_work_edit"
