@@ -16,11 +16,17 @@
 
     //Setup Page 2 Texts
     <string name="expenses_txt">Setup Your Expenses</string>
-    <string name="housing_txt">1) How much do you pay monthly for housing?</string>
-    <string name="water_txt">2) How much do you pay monthly for water?</string>
-    <string name="electric_txt">3) How much do you pay monthly for electricity?</string>
-    <string name="AC_txt">4) How much do you pay monthly for air conditioning?</string>
-    <string name="Car_txt">5) How much do you pay monthly for your car insurance?</string>
+    <string name="housing_txt">How much do you pay monthly for housing?</string>
+    <string name="water_txt">How much do you pay monthly for water?</string>
+    <string name="electric_txt">How much do you pay monthly for electricity?</string>
+    <string name="AC_txt">How much do you pay monthly for air conditioning?</string>
+    <string name="Car_txt">How much do you pay monthly for your car insurance?</string>
+
+    //Setup Page 3 Texts
+    <string name="Health_txt">How much do you pay monthly for health insurance?</string>
+    <string name="Transport_txt">How much do you pay monthly for transportation?</string>
+    <string name="Groc_txt">How much do you pay monthly for groceries?</string>
+    <string name="Loan_txt">What is the minimum amount that you spend on loans per month?</string>
 
     //Pay Period Spinner Text
     <string-array name="pay_periods">
