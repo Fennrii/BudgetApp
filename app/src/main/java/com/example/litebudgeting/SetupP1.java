@@ -13,7 +13,6 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 
 public class SetupP1 extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
