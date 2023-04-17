@@ -60,13 +60,35 @@
     <string name="btnSubmitForm">Submit</string>
     <string name="empty_currency">$0.00</string>
     <string name="current_cash_txt">How much money do you have in your bank account currently?</string>
-    <string name="cash_input_hint">$10.00</string>
     <string name="hourly_work_txt">How many hours do you typically work a week?</string>
-    <string name="hr_hint">30</string>
+    <string name="empty_int">0</string>
     <string name="hourly_pay_txt_Q">How much do you get paid per hour?</string>
     <string name="salary_questions">Salary / Government Assistance questions:</string>
     <string name="hourly_questions">Hourly questions:</string>
     <string name="Salary_text">How much is your monthly salary / Government Assistance?</string>
+    <string name="txt_PayType_HInt">Input information for your main job if you have more than one</string>
+    //End
+
+
+    //Setup Pages Buttons Text
+    <string name="btnNext">Next</string>
+    <string name="btnBack">Back</string>
+    <string name="btnSubmitForm">Submit</string>
+    //End
+
+    //Income page text
+    <string name="incomeEnter">Please Enter Your Monthly Income.</string>
+    <string name="extIncome">Enter your extra income/profits</string>
+    <string name="incomeScreentxt">Income</string>
+    <string name="incomeinfo">Please Enter Only Whole Numbers In The Questions Above </string>
+    <string name="enter_here">Enter Here</string>
+    //End
+
+    //Nav Menu
+    <string name="home_icon">Home</string>
+    <string name="income_icon">Income</string>
+    <string name="exp_icon">Expenses</string>
+
     //End
 
 
