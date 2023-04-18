@@ -85,6 +85,10 @@
     <string name="home_icon">Home</string>
     <string name="income_icon">Income</string>
     <string name="exp_icon">Expenses</string>
+    <string name="add_Income">Add an Income Source</string>
+    <string name="income_name">Please input a name for this income source</string>
+    <string name="job_hint">Manager job, Bank teller, etc.</string>
+    <string name="AddJob_hint">Input information for your other job</string>
 
     //End
 

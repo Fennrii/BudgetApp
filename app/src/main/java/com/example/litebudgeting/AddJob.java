@@ -1,7 +1,5 @@
 package com.example.litebudgeting;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,16 +11,18 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.gson.Gson;
+//TODO add call to this class from main activity
+public class AddJob extends AppCompatActivity {
 
-
-public class SetupP1 extends AppCompatActivity {
     private boolean is_salary;
     private int pay_period;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setup_p1);
+        setContentView(R.layout.activity_add_job);
 
         RadioButton hourly = findViewById(R.id.hourly_pay);
 
@@ -57,7 +57,7 @@ public class SetupP1 extends AppCompatActivity {
     }
 
     private void nextPageButton() {
-        Button nextButton = findViewById(R.id.btnNextP2);
+        Button nextButton = findViewById(R.id.btnSubmitJob);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,14 +79,14 @@ public class SetupP1 extends AppCompatActivity {
         Income job1;
         String workName = findViewById(R.id.income_name_edit).toString();
         if (is_salary){
-             EditText salaryEdit = findViewById(R.id.salary_edit);
-             String salaryStr = salaryEdit.getText().toString();
-             float salary;
-             try{salary = Float.parseFloat(salaryStr);}
-             catch(Exception e){
-                 salary = 0F;
+            EditText salaryEdit = findViewById(R.id.salary_edit);
+            String salaryStr = salaryEdit.getText().toString();
+            float salary;
+            try{salary = Float.parseFloat(salaryStr);}
+            catch(Exception e){
+                salary = 0F;
             }
-             job1 = new Income(workName,is_salary, salary, pay_period);
+            job1 = new Income(workName,is_salary, salary, pay_period);
         }
         else{
             EditText hourlyEdit = findViewById(R.id.hourly_pay_edit);
@@ -105,14 +105,13 @@ public class SetupP1 extends AppCompatActivity {
             job1 = new Income(workName,is_salary, hourly, workHour, pay_period);
 
         }
-        int jobCount = sharedPref.getInt("jobCount", 1);
+        int jobCount = sharedPref.getInt("jobCount", 0);
+        jobCount++;
         Gson gson = new Gson();
         String json = gson.toJson(job1);
         prefEdit.putString("job"+jobCount, json);
-        prefEdit.putInt("jobCount",jobCount);
         prefEdit.apply();
         Intent intent = new Intent(this, SetupP2.class);
         startActivity(intent);
     }
-
 }

@@ -1,36 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--Page one of setups-->
+<!--Add Income Source-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SetupP1">
+    tools:context=".AddJob">
 
 
     <!--Page Title-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/finance_txt"
+        android:text="@string/add_Income"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:id="@+id/txtPageTitle" />
 
-    <!--Page Number-->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/setup_page1"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/txtPageNumber1"
-        tools:ignore="RelativeOverlap" />
+    <!--    Get Name for income source-->
 
-<!--    Get Name for income source-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -54,7 +43,7 @@
         android:layout_marginTop="5dp"
         android:id="@+id/income_name_edit"
         />
-<!--    Get payment type-->
+    <!--    Get payment type-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -71,7 +60,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/txtPaymentTypeQ_hint"
         android:layout_below="@+id/txtPaymentTypeQ"
-        android:text="@string/txt_PayType_HInt"
+        android:text="@string/AddJob_hint"
         android:layout_marginStart="15dp"
         />
 
@@ -106,7 +95,7 @@
 
 
 
-<!-- Pay periods -->
+    <!-- Pay periods -->
     <TextView
         android:id="@+id/txtPayPeriodQ"
         android:layout_width="wrap_content"
@@ -114,7 +103,7 @@
         android:text="@string/question2_txt"
         android:textSize="18sp"
         android:layout_below="@id/payment_form"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginStart="15dp"
         android:textStyle="bold"/>
 
@@ -131,7 +120,7 @@
         android:tooltipText="@string/spinner_description"/>
 
 
-<!--    typical work hours-->
+    <!--    typical work hours-->
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,12 +144,12 @@
         android:layout_centerHorizontal="true"
         android:hint="@string/empty_int"
         android:inputType="number"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/hourly_work_edit"
         android:visibility="gone"
         />
 
-<!--    Pay per hour-->
+    <!--    Pay per hour-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -170,7 +159,7 @@
         android:textStyle="bold"
         android:layout_below="@id/hourly_work_edit"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:visibility="gone"
         />
 
@@ -182,13 +171,13 @@
         android:ems="10"
         android:hint="@string/empty_currency"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="5dp"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:visibility="gone"/>
 
 
-<!--    Salary/GA Questions-->
+    <!--    Salary/GA Questions-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -225,44 +214,15 @@
         />
 
 
-
-
-
-<!--    Getting current bank balance -->
-    <TextView
-        android:text="@string/current_cash_txt"
-        android:layout_above="@+id/current_cash_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="10dp"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:id="@+id/current_cash"/>
-
-    <EditText
-        android:id="@+id/current_cash_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnNextP2"
-        android:layout_marginBottom="10dp"
-        android:ems="10"
-        android:hint="@string/empty_currency"
-        android:layout_centerHorizontal="true"
-        android:importantForAutofill="no"
-        android:inputType="numberDecimal"
-        />
-
-
     <!--Next Button-->
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnNext"
+        android:text="@string/btnSubmitForm"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/btnNextP2"/>
+        android:id="@+id/btnSubmitJob"/>
 
 </RelativeLayout>

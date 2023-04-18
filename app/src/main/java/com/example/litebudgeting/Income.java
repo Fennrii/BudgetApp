@@ -1,6 +1,7 @@
 package com.example.litebudgeting;
 
 public class Income {
+    private String workName;
     private boolean fixed_income;
     private float salary_pay;
     private float hourly_pay;
@@ -8,17 +9,23 @@ public class Income {
     private int pay_period;
 
 //  Constructor for Government or Salary pay
-    public Income (boolean fixed_income, float salary_pay, int pay_period) {
+    public Income (String workName, boolean fixed_income, float salary_pay, int pay_period) {
+        this.workName = workName;
         this.fixed_income = fixed_income;
         this.salary_pay = salary_pay;
         this.pay_period = pay_period;
     }
 
-    public Income (boolean fixed_income, float hourly_pay, float hours_worked, int pay_period){
+    public Income (String workName,boolean fixed_income, float hourly_pay, float hours_worked, int pay_period){
+        this.workName = workName;
         this.fixed_income = fixed_income;
         this.hourly_pay = hourly_pay;
         this.hours_worked = hours_worked;
         this.pay_period = pay_period;
+    }
+
+    public String getWorkName() {
+        return workName;
     }
 
     public boolean isFixed_income() {
