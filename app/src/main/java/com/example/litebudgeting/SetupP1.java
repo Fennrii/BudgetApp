@@ -2,7 +2,6 @@ package com.example.litebudgeting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -77,11 +76,12 @@ public class SetupP1 extends AppCompatActivity {
     private void nextButtonClicked(){
         SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
+        Income job1;
         if (is_salary){
              EditText salaryEdit = findViewById(R.id.salary_edit);
              String salaryStr = salaryEdit.getText().toString();
              float salary = Float.parseFloat(salaryStr);
-            Income job1 = new Income(is_salary, salary, pay_period);
+             job1 = new Income(is_salary, salary, pay_period);
         }
         else{
             EditText hourlyEdit = findViewById(R.id.hourly_pay_edit);
@@ -90,11 +90,13 @@ public class SetupP1 extends AppCompatActivity {
             EditText workHourEdit = findViewById(R.id.hourly_work_edit);
             String workHourStr = workHourEdit.toString();
             float workHour = Float.parseFloat(workHourStr);
-            Income job1 = new Income(is_salary, hourly, workHour, pay_period);
+            job1 = new Income(is_salary, hourly, workHour, pay_period);
 
         }
         Gson gson = new Gson();
-
+        String json = gson.toJson(job1);
+        prefEdit.putString("job1", json);
+        prefEdit.apply();
         Intent intent = new Intent(this, SetupP2.class);
         startActivity(intent);
     }
