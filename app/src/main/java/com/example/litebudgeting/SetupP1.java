@@ -54,7 +54,7 @@ public class SetupP1 extends AppCompatActivity {
             }
         });
 
-//        nextPageButton();
+        nextPageButton();
         spinner();
     }
 
@@ -65,12 +65,14 @@ public class SetupP1 extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                updatePrefs();
                 SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
                TextView test =  findViewById(R.id.txtPageTitle);
                test.setText(String.valueOf(sharedPreferences.getFloat("BankAccount", 0)));
+
             }
         });
-        updatePrefs();
+
     }
 
     private void spinner(){
