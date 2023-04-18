@@ -6,6 +6,7 @@
     //End
 
 
+
     //Setup Page 1 Texts
     <string name="app_name">Lite Budgeting</string>
     <string name="finance_txt">Setup Your Finances</string>
@@ -15,17 +16,11 @@
 
     //Setup Page 2 Texts
     <string name="expenses_txt">Setup Your Expenses</string>
-    <string name="housing_txt">How much do you pay monthly for housing?</string>
-    <string name="water_txt">How much do you pay monthly for water?</string>
-    <string name="electric_txt">How much do you pay monthly for electricity?</string>
-    <string name="AC_txt">How much do you pay monthly for air conditioning?</string>
-    <string name="Car_txt">How much do you pay monthly for your car insurance?</string>
-
-    //Setup Page 3 Texts
-    <string name="Health_txt">How much do you pay monthly for health insurance?</string>
-    <string name="Transport_txt">How much do you pay monthly for transportation?</string>
-    <string name="Groc_txt">How much do you pay monthly for groceries?</string>
-    <string name="Loan_txt">What is the minimum amount that you spend on loans per month?</string>
+    <string name="housing_txt">1) How much do you pay monthly for housing?</string>
+    <string name="water_txt">2) How much do you pay monthly for water?</string>
+    <string name="electric_txt">3) How much do you pay monthly for electricity?</string>
+    <string name="AC_txt">4) How much do you pay monthly for air conditioning?</string>
+    <string name="Car_txt">5) How much do you pay monthly for your car insurance?</string>
 
     //Pay Period Spinner Text
     <string-array name="pay_periods">
@@ -54,15 +49,18 @@
 
 
     //Setup Pages Buttons Text
+    <string name="btnNext">Next</string>
+    <string name="btnBack">Back</string>
+    <string name="btnSubmitForm">Submit</string>
     <string name="empty_currency">$0.00</string>
     <string name="current_cash_txt">How much money do you have in your bank account currently?</string>
+    <string name="cash_input_hint">$10.00</string>
     <string name="hourly_work_txt">How many hours do you typically work a week?</string>
-    <string name="empty_int">0</string>
+    <string name="hr_hint">30</string>
     <string name="hourly_pay_txt_Q">How much do you get paid per hour?</string>
     <string name="salary_questions">Salary / Government Assistance questions:</string>
     <string name="hourly_questions">Hourly questions:</string>
     <string name="Salary_text">How much is your monthly salary / Government Assistance?</string>
-    <string name="txt_PayType_HInt">Input information for your main job if you have more than one</string>
     //End
 
 
@@ -84,15 +82,10 @@
     <string name="home_icon">Home</string>
     <string name="income_icon">Income</string>
     <string name="exp_icon">Expenses</string>
-    <string name="add_Income">Add an Income Source</string>
-    <string name="income_name">Please input a name for this income source</string>
-    <string name="job_hint">Manager job, Bank teller, etc.</string>
-    <string name="AddJob_hint">Input information for your other job</string>
+
     //End
 
-    //Home Page Text
-    <string name="totalAmount">Total Amount:</string>
-    //End
+
 
 
 </resources>
