@@ -35,18 +35,11 @@ public class FinalSetupPage extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switchLayout(true);
+                startActivity(new Intent(FinalSetupPage.this, GraphHomePage.class));
             }
         });
     }
 
 
-    public void switchLayout(boolean isSecondLayout) {
-        if(isSecondLayout){
-            setContentView(R.layout.activity_graph_main);
-        } else {
-            setContentView(R.layout.activity_main);
-        }
-    }
 
 }

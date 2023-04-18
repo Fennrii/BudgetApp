@@ -6,7 +6,6 @@
     //End
 
 
-
     //Setup Page 1 Texts
     <string name="app_name">Lite Budgeting</string>
     <string name="finance_txt">Setup Your Finances</string>
@@ -89,10 +88,11 @@
     <string name="income_name">Please input a name for this income source</string>
     <string name="job_hint">Manager job, Bank teller, etc.</string>
     <string name="AddJob_hint">Input information for your other job</string>
-
     //End
 
-
+    //Home Page Text
+    <string name="totalAmount">Total Amount:</string>
+    //End
 
 
 </resources>

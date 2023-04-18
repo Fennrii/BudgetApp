@@ -23,29 +23,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SetupP1.class);
                 startActivity(intent);
-                switchLayout(true);
             }
         });
     }
 
-    public void switchLayout(boolean toMainForm) {
-        if(toMainForm == true){
-            setContentView(R.layout.activity_graph_main);
-        } else {
-            setContentView(R.layout.activity_main);
-        }
-    }
 
-    private void testButton(){
-        Button testButton = findViewById(R.id.test_buttonThing);
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SetupP1.class);
-                startActivity(intent);
-            }
-        });
-    }
+
+
 
 
 
