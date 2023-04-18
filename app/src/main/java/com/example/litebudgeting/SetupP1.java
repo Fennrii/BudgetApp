@@ -3,21 +3,31 @@ package com.example.litebudgeting;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SetupP1 extends AppCompatActivity {
+
+    private EditText bankAccountInitialEditText;
+    private float bankAccountInitialInt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_setup_p1);
+        //Testing
+
 
         RadioButton hourly = findViewById(R.id.hourly_pay);
         RadioButton salary = findViewById(R.id.salary_pay);
@@ -44,13 +54,23 @@ public class SetupP1 extends AppCompatActivity {
             }
         });
 
-        nextPageButton();
+//        nextPageButton();
         spinner();
     }
 
+
     private void nextPageButton() {
         Button nextButton = findViewById(R.id.btnNextP2);
-        nextButton.setOnClickListener(view -> startActivity(new Intent(SetupP1.this, SetupP2.class)));
+//        nextButton.setOnClickListener(view -> startActivity(new Intent(SetupP1.this, SetupP2.class)));
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+               TextView test =  findViewById(R.id.txtPageTitle);
+               test.setText(String.valueOf(sharedPreferences.getFloat("BankAccount", 0)));
+            }
+        });
+        updatePrefs();
     }
 
     private void spinner(){
@@ -60,5 +80,15 @@ public class SetupP1 extends AppCompatActivity {
         spinnerLanguages.setAdapter(adapter);
     }
 
+    private void updatePrefs() {
+        bankAccountInitialEditText = findViewById(R.id.current_cash_edit);
+        bankAccountInitialInt = Float.parseFloat(bankAccountInitialEditText.getText().toString());
+
+        SharedPreferences sharedPreferences = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putFloat("BankAccount", bankAccountInitialInt);
+        editor.apply();
+    }
 
 }
