@@ -14,7 +14,9 @@ public class FinalSetupPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_setup_page);
 
+
         previousPageButton();
+        submitFormButton();
     }
 
 
@@ -26,6 +28,25 @@ public class FinalSetupPage extends AppCompatActivity {
                 startActivity(new Intent(FinalSetupPage.this, SetupP2.class));
             }
         });
+    }
+
+    private void submitFormButton() {
+        Button submitButton = (Button) findViewById(R.id.btnSubmit);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switchLayout(true);
+            }
+        });
+    }
+
+
+    public void switchLayout(boolean isSecondLayout) {
+        if(isSecondLayout){
+            setContentView(R.layout.activity_graph_main);
+        } else {
+            setContentView(R.layout.activity_main);
+        }
     }
 
 }
