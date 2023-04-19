@@ -74,8 +74,12 @@ public class SetupP1 extends AppCompatActivity {
     }
 
     private void nextButtonClicked(){
+
+//      Update shared preferences
         SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
+
+//      Add a job to shared preferences
         Income job1;
         String workName = findViewById(R.id.income_name_edit).toString();
         if (is_salary){
@@ -110,7 +114,18 @@ public class SetupP1 extends AppCompatActivity {
         String json = gson.toJson(job1);
         prefEdit.putString("job"+jobCount, json);
         prefEdit.putInt("jobCount",jobCount);
+
+//      Add the initial Bank balance to shared preferences
+        EditText bankAccountInitialEditText = findViewById(R.id.current_cash_edit);
+        float bankAccountInitialInt;
+        try{bankAccountInitialInt = Float.parseFloat(bankAccountInitialEditText.getText().toString());}
+        catch (Exception e){bankAccountInitialInt=0F;}
+        prefEdit.putFloat("BankAccount", bankAccountInitialInt);
+
+
         prefEdit.apply();
+
+//      Go to next page
         Intent intent = new Intent(this, SetupP2.class);
         startActivity(intent);
     }
