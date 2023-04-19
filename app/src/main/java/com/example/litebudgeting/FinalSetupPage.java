@@ -25,7 +25,7 @@ public class FinalSetupPage extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinalSetupPage.this, SetupP2.class));
+                startActivity(new Intent(FinalSetupPage.this, SetupP3.class));
             }
         });
     }
