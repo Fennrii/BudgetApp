@@ -2,41 +2,36 @@ package com.example.litebudgeting;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import com.example.litebudgeting.databinding.NavMainBinding;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+
+import com.example.litebudgeting.databinding.ActivityNavMainBinding;
 
 public class NavMain extends AppCompatActivity {
 
-    NavMainBinding binding;
+    private ActivityNavMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = NavMainBinding.inflate(getLayoutInflater());
+
+        binding = ActivityNavMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFrag(new HomeFragment());
 
-        binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch(item.getItemId()){
-                case R.id.home:
-                    replaceFrag(new HomeFragment());
-                    break;
-                case R.id.income:
-                    replaceFrag(new IncomeFragment());
-                    break;
-                case R.id.expenses:
-                    replaceFrag(new ExpensesFragment());
-                    break;
-            }
-            return true;
-        });
+        BottomNavigationView navView = findViewById(R.id.nav_view);
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_nav_main);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
-    private void replaceFrag(Fragment fragment){
-
-    }
 }

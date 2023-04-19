@@ -82,9 +82,12 @@
     <string name="home_icon">Home</string>
     <string name="income_icon">Income</string>
     <string name="exp_icon">Expenses</string>
-
+    <string name="title_home">Home</string>
+    <string name="title_income">Income</string>
+    <string name="title_expenses">Expenses</string>
     //End
 
+    
 
 
 

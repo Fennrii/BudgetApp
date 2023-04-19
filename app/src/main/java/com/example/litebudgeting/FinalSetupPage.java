@@ -35,7 +35,7 @@ public class FinalSetupPage extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FinalSetupPage.this, GraphHomePage.class));
+                startActivity(new Intent(FinalSetupPage.this, NavMain.class));
             }
         });
     }
