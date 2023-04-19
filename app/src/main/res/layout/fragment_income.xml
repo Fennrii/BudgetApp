@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".IncomeScreen">
+    tools:context=".ui.income.IncomeFragment">
+
+    <TextView
+        android:id="@+id/textIncome"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/incomeinfotxt"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,7 +37,7 @@
     <EditText
         android:id="@+id/incometxt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="138dp"
         android:hint="@string/enter_here"
@@ -51,7 +58,7 @@
     <EditText
         android:id="@+id/extIncometxt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="263dp"
         android:hint="@string/enter_here"
@@ -64,33 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="600dp"
+        android:layout_marginTop="580dp"
         android:text="@string/incomeinfo"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold" />
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent"
-      >
-
-
-    </FrameLayout>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/incomeinfotxt"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/nav_menu" />
-
-
 </RelativeLayout>

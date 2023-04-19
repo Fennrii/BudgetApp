@@ -30,11 +30,12 @@
     <EditText
         android:id="@+id/Health_edit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/txtHealth"
         android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="@string/empty_currency"
+        android:textAlignment="center"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
         android:layout_centerHorizontal="true"/>
@@ -63,12 +64,13 @@
     <EditText
         android:id="@+id/Transport_edit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/txtTransport"
         android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="@string/empty_currency"
         android:importantForAutofill="no"
+        android:textAlignment="center"
         android:inputType="numberDecimal"
         android:layout_centerHorizontal="true"/>
 
@@ -86,12 +88,13 @@
     <EditText
         android:id="@+id/Groc_edit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/txtGroc"
         android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="@string/empty_currency"
         android:importantForAutofill="no"
+        android:textAlignment="center"
         android:inputType="numberDecimal"
         android:layout_centerHorizontal="true"/>
 
@@ -109,13 +112,14 @@
     <EditText
         android:id="@+id/Loan_edit"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_below="@+id/txtLoan"
         android:layout_marginTop="9dp"
         android:ems="10"
         android:hint="@string/empty_currency"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
+        android:textAlignment="center"
         android:layout_centerHorizontal="true"/>
 
     <Button
