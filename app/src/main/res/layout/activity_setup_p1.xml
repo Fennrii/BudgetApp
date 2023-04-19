@@ -226,16 +226,14 @@
 
 
 
-
-
-<!--    Getting current bank balance -->
+    <!--    Getting current bank balance -->
     <TextView
         android:text="@string/current_cash_txt"
+        android:layout_above="@+id/current_cash_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/list_payPeriods"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:textStyle="bold"
         android:id="@+id/current_cash"/>
@@ -243,11 +241,11 @@
     <EditText
         android:id="@+id/current_cash_edit"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_below="@+id/current_cash"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnNextP2"
+        android:layout_marginBottom="10dp"
         android:ems="10"
         android:hint="@string/empty_currency"
-        android:textAlignment="center"
         android:layout_centerHorizontal="true"
         android:importantForAutofill="no"
         android:inputType="numberDecimal"
