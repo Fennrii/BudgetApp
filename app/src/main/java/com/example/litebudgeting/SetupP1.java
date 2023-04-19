@@ -79,14 +79,14 @@ public class SetupP1 extends AppCompatActivity {
         Income job1;
         String workName = findViewById(R.id.income_name_edit).toString();
         if (is_salary){
-             EditText salaryEdit = findViewById(R.id.salary_edit);
-             String salaryStr = salaryEdit.getText().toString();
-             float salary;
-             try{salary = Float.parseFloat(salaryStr);}
-             catch(Exception e){
-                 salary = 0F;
+            EditText salaryEdit = findViewById(R.id.salary_edit);
+            String salaryStr = salaryEdit.getText().toString();
+            float salary;
+            try{salary = Float.parseFloat(salaryStr);}
+            catch(Exception e){
+                salary = 0F;
             }
-             job1 = new Income(workName,is_salary, salary, pay_period);
+            job1 = new Income(workName,is_salary, salary, pay_period);
         }
         else{
             EditText hourlyEdit = findViewById(R.id.hourly_pay_edit);
