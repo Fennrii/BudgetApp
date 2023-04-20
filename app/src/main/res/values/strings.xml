@@ -17,7 +17,7 @@
 
 
 
-    //Setup Page Texts
+    //Setup Page 2 Texts
     <string name="expenses_txt">Expenses Setup</string>
     <string name="housing_txt">1) How much do you pay monthly for housing?</string>
     <string name="water_txt">2) How much do you pay monthly for water?</string>
@@ -47,20 +47,6 @@
         <item>Monthly</item>
     </string-array>
     <string name="spinner_description">Enter in your Pay Period</string>
-    //End
-
-    //Expenses Spinner Text
-    <string-array name="expenses">
-        <item>Housing</item>
-        <item>Water</item>
-        <item>Electricity</item>
-        <item>AC</item>
-        <item>Car Insurance</item>
-        <item>Health Insurance</item>
-        <item>Transportation</item>
-        <item>Groceries</item>
-        <item>Loans</item>
-    </string-array>
     //End
 
 
@@ -100,28 +86,13 @@
 
 
     //Income page text
-    <string name="deleteJobQuestion">From this list, are there any jobs you want to delete?</string>
-    <string name="extIncome">Enter in any extra income/profits in the box below.</string>
-    <string name="incomeScreentxt">Income Changes</string>
-    <string name="content_description_deleteJob">List of your Job Titles</string>
-    <string name="tooltips_deleteJob">List of your Job Titles</string>
+    <string name="extIncome">Enter your extra income/profits</string>
+    <string name="incomeScreentxt">Extra Income</string>
+    <string name="incomeinfo">Please Enter Only Whole Numbers In The Questions Above </string>
     <string name="enter_here">Enter Here</string>
-    <string name="addJob_button">Add Job</string>
-    <string name="addJob_text">Click the button below to add a new job.</string>
     //End
 
-    //Expenses page text
-    <string name="housing_expense_txt">Housing</string>
-    <string name="water_expense_txt">Water</string>
-    <string name="electric_expense_txt">Electricity</string>
-    <string name="AC_expense_txt">Air Conditioning</string>
-    <string name="car_expense_txt">Car Insurance</string>
-    <string name="health_expense_txt">Health Insurance</string>
-    <string name="transport_expense_txt">Transportation</string>
-    <string name="groc_expense_txt">Groceries</string>
-    <string name="loan_expense_txt">Loans</string>
-    <string name="edit_btn">Edit</string>
-    //End
+
 
     //Nav Menu
     <string name="home_icon">Summary</string>
@@ -139,8 +110,17 @@
     <string name="title_activity_nav_main">Lite Budgeting App</string>
 
     //Home Nav Page Text
-    <string name="txtTotalAmount">Total Remaining this Month:</string>
+    <string name="txtTotalAmount">Total Amount:</string>
     <string name="chartSwitchText">Change to ratio view</string>
+    //End
+
+    //Change Income
+    <string name="txtincomechange">If your income has changed: </string>
+    <string name="txtincomechangeboolean">Is this new income replacing your previous job? </string>
+    <string name="hryorsry">Is this new income hourly or salary? </string>
+    <string name="PayPrd">What Pay Period Is This Job?</string>
+
+
     //End
 
 
