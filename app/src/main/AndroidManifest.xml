@@ -10,8 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiteBudgeting" >
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+            android:name=".NavMain"
+            android:exported="true"
+            android:label="@string/title_activity_nav_main" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".AddJob"
             android:exported="false" />
@@ -28,13 +35,12 @@
             android:name=".SetupP3"
             android:exported="false" />
         <activity
-            android:name=".NavMain"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:name=".Subs"
+            android:exported="false"/>
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" >
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

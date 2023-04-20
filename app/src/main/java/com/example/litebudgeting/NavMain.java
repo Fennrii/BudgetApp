@@ -1,8 +1,7 @@
 package com.example.litebudgeting;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,42 +25,48 @@ public class NavMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityNavMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        SharedPreferences sharedPref = getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
 
-        BottomNavigationView navView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_nav_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+        boolean noForm = sharedPref.getBoolean(Keys.NO_FORM, true);
+
+        if (noForm){
+            setContentView(R.layout.activity_main);
+            setupButton();
+        }
+
+        else {
+            binding = ActivityNavMainBinding.inflate(getLayoutInflater());
+            setContentView(binding.getRoot());
+
+            BottomNavigationView navView = findViewById(R.id.nav_view);
+            // Passing each menu ID as a set of Ids because each
+            // menu should be considered as top level destinations.
+            AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_nav_main);
+            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+            NavigationUI.setupWithNavController(binding.navView, navController);
+        }
 
 
 
-        AlertDialog builder = new AlertDialog.Builder(NavMain.this).create();
-        builder.setMessage("Thank you for downloading this app! Please click SETUP to start using our app.");
-        builder.show();
-
-
-        setupFormButton();
     }
 
-    public void setupFormButton(){
-        Button setupButton = findViewById(R.id.btnSetupForm);
+    private void setupButton(){
+        Button setupButton = findViewById(R.id.btnSetup);
         setupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NavMain.this, SetupP1.class);
                 startActivity(intent);
+                SharedPreferences sharedPref = getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
+                SharedPreferences.Editor prefEdit = sharedPref.edit();
+                prefEdit.putBoolean(Keys.NO_FORM, false);
+                prefEdit.apply();
+
             }
         });
     }
-
-
-
-
 
 }

@@ -1,14 +1,12 @@
 package com.example.litebudgeting.ui.home;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.litebudgeting.Income;
 import com.example.litebudgeting.Keys;
-import com.example.litebudgeting.MainActivity;
 import com.example.litebudgeting.R;
-import com.example.litebudgeting.SetupP1;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.data.PieData;
@@ -35,10 +31,10 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
 
-
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        HomeViewModel homeViewModel =
+                new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
 
@@ -48,7 +44,6 @@ public class HomeFragment extends Fragment {
 
         //Chart Code Example (Needs to have our data from Setup sheet.
         //There are other charts you can use if you want.
-
         PieChart pieChart = root.findViewById(R.id.example_Chart);
 
         pieChart.setUsePercentValues(false);
@@ -137,13 +132,7 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
-
-
-
-
     }
-
-
 
     @Override
     public void onDestroyView() {
