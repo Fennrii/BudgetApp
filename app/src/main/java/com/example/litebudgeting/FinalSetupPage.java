@@ -50,11 +50,11 @@ public class FinalSetupPage extends AppCompatActivity {
     private void showTest(){
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         TextView tester = findViewById(R.id.showTest);
-//        Gson gson = new Gson();
-//        String json = sharedPref.getString("job1", "");
-//        Income income = gson.fromJson(json, Income.class);
-//        String test = income.getWorkName();
-        String test = String.valueOf(sharedPref.getFloat(Keys.HOUSING,0f));
+        Gson gson = new Gson();
+        String json = sharedPref.getString("job1", "");
+        Income income = gson.fromJson(json, Income.class);
+        String test = String.valueOf(income.getPay());
+//        String test = String.valueOf(sharedPref.getFloat(Keys.HOUSING,0f));
         tester.setText(test);
 //        tester.setText(json);
     }
