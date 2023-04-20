@@ -17,7 +17,7 @@
 
 
 
-    //Setup Page 2 Texts
+    //Setup Page Texts
     <string name="expenses_txt">Expenses Setup</string>
     <string name="housing_txt">1) How much do you pay monthly for housing?</string>
     <string name="water_txt">2) How much do you pay monthly for water?</string>
@@ -47,6 +47,20 @@
         <item>Monthly</item>
     </string-array>
     <string name="spinner_description">Enter in your Pay Period</string>
+    //End
+
+    //Expenses Spinner Text
+    <string-array name="expenses">
+        <item>Housing</item>
+        <item>Water</item>
+        <item>Electricity</item>
+        <item>AC</item>
+        <item>Car Insurance</item>
+        <item>Health Insurance</item>
+        <item>Transportation</item>
+        <item>Groceries</item>
+        <item>Loans</item>
+    </string-array>
     //End
 
 
@@ -93,7 +107,18 @@
     <string name="enter_here">Enter Here</string>
     //End
 
-
+    //Expenses page text
+    <string name="housing_expense_txt">Housing</string>
+    <string name="water_expense_txt">Water</string>
+    <string name="electric_expense_txt">Electricity</string>
+    <string name="AC_expense_txt">Air Conditioning</string>
+    <string name="car_expense_txt">Car Insurance</string>
+    <string name="health_expense_txt">Health Insurance</string>
+    <string name="transport_expense_txt">Transportation</string>
+    <string name="groc_expense_txt">Groceries</string>
+    <string name="loan_expense_txt">Loans</string>
+    <string name="edit_btn">Edit</string>
+    //End
 
     //Nav Menu
     <string name="home_icon">Summary</string>

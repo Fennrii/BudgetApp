@@ -45,7 +45,7 @@
         android:importantForAutofill="no"
         android:layout_centerHorizontal="true"
         android:hint="@string/subName_hint"
-        android:inputType="number"
+        android:inputType="text"
         android:layout_marginTop="5dp"
         android:id="@+id/subName_edit"
         />
@@ -119,6 +119,20 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="50dp"
         android:id="@+id/btnNextP5"
+        android:visibility="invisible"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnSubmitForm"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp"
+        android:id="@+id/btnSubmit"
+        android:visibility="invisible"
         tools:ignore="RelativeOverlap" />
 
     <Button

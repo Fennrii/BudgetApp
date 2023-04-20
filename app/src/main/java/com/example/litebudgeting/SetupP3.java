@@ -74,6 +74,6 @@ public class SetupP3 extends AppCompatActivity {
         prefEdit.apply();
 
 //      Go to next page
-        startActivity(new Intent(SetupP3.this, FinalSetupPage.class));
+        startActivity(new Intent(SetupP3.this, Subs.class));
     }
 }
