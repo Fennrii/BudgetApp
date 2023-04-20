@@ -16,6 +16,25 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/txtPageNumber5"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:id="@+id/showTest"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/showTest"
+        android:id="@+id/showTest2"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

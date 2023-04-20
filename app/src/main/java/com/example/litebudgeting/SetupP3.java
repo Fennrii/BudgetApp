@@ -43,7 +43,7 @@ public class SetupP3 extends AppCompatActivity {
     private void nextButtonClicked(){
 
 //      Update shared preferences
-        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
 
 //      Get values to be saved
@@ -55,21 +55,21 @@ public class SetupP3 extends AppCompatActivity {
 
 //      Convert values to floats. If the values are empty then put 0.0 instead
         float health, transport, groc, loan;
-        try{ health = Float.parseFloat(healthEdit.toString());}
+        try{ health = Float.parseFloat(healthEdit.getText().toString());}
         catch (Exception e){ health = 0F;}
-        try{ transport = Float.parseFloat(transportEdit.toString());}
+        try{ transport = Float.parseFloat(transportEdit.getText().toString());}
         catch (Exception e){ transport = 0F;}
-        try{ groc = Float.parseFloat(grocEdit.toString());}
+        try{ groc = Float.parseFloat(grocEdit.getText().toString());}
         catch (Exception e){ groc = 0F;}
-        try{ loan = Float.parseFloat(loanEdit.toString());}
+        try{ loan = Float.parseFloat(loanEdit.getText().toString());}
         catch (Exception e){ loan = 0F;}
 
 
 //      Put the floats into shared preferences
-        prefEdit.putFloat("Health", health);
-        prefEdit.putFloat("Transport", transport);
-        prefEdit.putFloat("Groc", groc);
-        prefEdit.putFloat("Loan", loan);
+        prefEdit.putFloat(Keys.HEALTH, health);
+        prefEdit.putFloat(Keys.TRANSPORT, transport);
+        prefEdit.putFloat(Keys.GROCERIES, groc);
+        prefEdit.putFloat(Keys.LOAN, loan);
 
         prefEdit.apply();
 
