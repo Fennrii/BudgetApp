@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_below="@+id/textHome"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="23dp"
         android:id="@+id/txtTotalAmount"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -25,12 +25,14 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="5dp"
-        android:text="@string/txtSetupFormbtn"
+        android:textSize="18sp"
+        android:text="Setup"
         android:textStyle="bold"
-        android:id="@+id/btntoSetupForm"/>
+        android:id="@+id/btnSetupForm"/>
 
     <View
         android:layout_width="match_parent"
@@ -51,6 +53,26 @@
         android:layout_below="@+id/example_Chart"
         android:background="@color/black"
         android:id="@+id/sepLine2"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/sepLine2"
+        android:text="@string/chartSwitchText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/switchText"/>
+
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/switchText"
+        android:layout_marginTop="0dp"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
 
 </RelativeLayout>

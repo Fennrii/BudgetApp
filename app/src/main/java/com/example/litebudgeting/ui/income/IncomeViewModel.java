@@ -15,4 +15,6 @@ public class IncomeViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
+
 }

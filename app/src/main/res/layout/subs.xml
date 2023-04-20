@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SetupP1">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Subs_txt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:id="@+id/SubsPageTitle" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/setup_page4"
+        android:textSize="18sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/txtPageNumber4"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/subName_txt"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="70dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/subName_txt"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subName_txt"
+        android:ems="11"
+        android:importantForAutofill="no"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/subName_hint"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:id="@+id/subName_edit"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subName_edit"
+        android:text="@string/subCost_txt"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/subCost_txt"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subCost_txt"
+        android:ems="7"
+        android:importantForAutofill="no"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/empty_currency"
+        android:inputType="number"
+        android:layout_marginTop="5dp"
+        android:id="@+id/subCost_edit"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/subCost_edit"
+        android:text="@string/addSub_txt"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:id="@+id/addSub_txt"
+        />
+
+    <RadioGroup
+        android:id="@+id/addSub_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addSub_txt"
+        android:orientation="horizontal"
+        android:layout_marginStart="10dp">
+
+        <RadioButton
+            android:id="@+id/addSub_yes"
+            android:text="@string/yes_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="132dp"/>
+
+        <RadioButton
+            android:id="@+id/addSub_no"
+            android:text="@string/no_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnNext"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="50dp"
+        android:id="@+id/btnNextP5"
+        tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnBack"
+        android:textSize="20sp"
+        android:layout_marginBottom="5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="50dp"
+        android:id="@+id/btnBackP3"/>
+
+</RelativeLayout>

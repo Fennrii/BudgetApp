@@ -29,6 +29,15 @@
     <string name="Groc_txt">8) How much do you pay monthly for groceries?</string>
     <string name="Loan_txt">9) How much do you pay monthly for loans?</string>
 
+    //Subs Page Texts
+    <string name="Subs_txt">Enter Your Subscriptions</string>
+    <string name="subName_txt">Subscription Name</string>
+    <string name="subName_hint">(e.g. Netflix, Disney+, etc.)</string>
+    <string name="subCost_txt">Subscription Cost</string>
+    <string name="addSub_txt">Would you like to add another subscription?</string>
+    <string name="yes_txt">Yes</string>
+    <string name="no_txt">No</string>
+
 
 
     //Pay Period Spinner Text
@@ -84,6 +93,7 @@
     <string name="tooltips_deleteJob">List of your Job Titles</string>
     <string name="enter_here">Enter Here</string>
     <string name="addJob_button">Add Job</string>
+    <string name="addJob_text">Click the button below to add a new job.</string>
     //End
 
 
@@ -105,7 +115,7 @@
 
     //Home Nav Page Text
     <string name="txtTotalAmount">Total Amount:</string>
-    <string name="txtSetupFormbtn">Setup</string>
+    <string name="chartSwitchText">Change to ratio view</string>
     //End
 
 

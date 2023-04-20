@@ -74,30 +74,35 @@ public class SetupP1 extends AppCompatActivity {
     }
 
     private void nextButtonClicked(){
-        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
+
+//      Update shared preferences
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
+
+//      Add a job to shared preferences
         Income job1;
-        String workName = findViewById(R.id.income_name_edit).toString();
+        EditText workNameEdit = findViewById(R.id.income_name_edit);
+        String workName = workNameEdit.getText().toString();
         if (is_salary){
-             EditText salaryEdit = findViewById(R.id.salary_edit);
-             String salaryStr = salaryEdit.getText().toString();
-             float salary;
-             try{salary = Float.parseFloat(salaryStr);}
-             catch(Exception e){
-                 salary = 0F;
+            EditText salaryEdit = findViewById(R.id.salary_edit);
+            String salaryStr = salaryEdit.getText().toString();
+            float salary;
+            try{salary = Float.parseFloat(salaryStr);}
+            catch(Exception e){
+                salary = 0F;
             }
-             job1 = new Income(workName,is_salary, salary, pay_period);
+            job1 = new Income(workName,is_salary, salary, pay_period);
         }
         else{
             EditText hourlyEdit = findViewById(R.id.hourly_pay_edit);
-            String hourlyStr = hourlyEdit.toString();
+            String hourlyStr = hourlyEdit.getText().toString();
             float hourly,workHour;
             try{hourly = Float.parseFloat(hourlyStr);}
             catch (Exception e){
                 hourly = 0F;
             }
             EditText workHourEdit = findViewById(R.id.hourly_work_edit);
-            String workHourStr = workHourEdit.toString();
+            String workHourStr = workHourEdit.getText().toString();
             try{workHour = Float.parseFloat(workHourStr);}
             catch (Exception e){
                 workHour = 0F;
@@ -105,12 +110,23 @@ public class SetupP1 extends AppCompatActivity {
             job1 = new Income(workName,is_salary, hourly, workHour, pay_period);
 
         }
-        int jobCount = sharedPref.getInt("jobCount", 1);
+        int jobCount = sharedPref.getInt(Keys.JOB_COUNTER, 1);
         Gson gson = new Gson();
         String json = gson.toJson(job1);
-        prefEdit.putString("job"+jobCount, json);
-        prefEdit.putInt("jobCount",jobCount);
+        prefEdit.putString(Keys.JOB+jobCount, json);
+        prefEdit.putInt(Keys.JOB_COUNTER,jobCount);
+
+//      Add the initial Bank balance to shared preferences
+        EditText bankAccountInitialEditText = findViewById(R.id.current_cash_edit);
+        float bankAccountInitialInt;
+        try{bankAccountInitialInt = Float.parseFloat(bankAccountInitialEditText.getText().toString());}
+        catch (Exception e){bankAccountInitialInt=0F;}
+        prefEdit.putFloat(Keys.BANK_SAVINGS, bankAccountInitialInt);
+
+
         prefEdit.apply();
+
+//      Go to next page
         Intent intent = new Intent(this, SetupP2.class);
         startActivity(intent);
     }

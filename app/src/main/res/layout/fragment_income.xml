@@ -78,20 +78,19 @@
         android:layout_below="@id/extIncometxt"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:text="Click the button below to add a new job."
+        android:text="@string/addJob_text"
         android:textSize="18sp"
         android:textStyle="bold"/>
 
     <Button
+        android:id="@+id/btnAddJobs"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:id="@+id/btnAddJobs"
         android:layout_below="@id/addJobQ"
-        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:text="@string/addJob_button"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

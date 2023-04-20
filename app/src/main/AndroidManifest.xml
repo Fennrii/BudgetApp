@@ -10,9 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LiteBudgeting" >
         <activity
-            android:name=".NavMain"
-            android:exported="false"
-            android:label="@string/title_activity_nav_main" />
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".AddJob"
             android:exported="false" />
@@ -29,7 +28,7 @@
             android:name=".SetupP3"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".NavMain"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
