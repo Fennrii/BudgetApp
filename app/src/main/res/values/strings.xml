@@ -29,6 +29,15 @@
     <string name="Groc_txt">8) How much do you pay monthly for groceries?</string>
     <string name="Loan_txt">9) How much do you pay monthly for loans?</string>
 
+    //Subs Page Texts
+    <string name="Subs_txt">Enter Your Subscriptions</string>
+    <string name="subName_txt">Subscription Name</string>
+    <string name="subName_hint">(e.g. Netflix, Disney+, etc.)</string>
+    <string name="subCost_txt">Subscription Cost</string>
+    <string name="addSub_txt">Would you like to add another subscription?</string>
+    <string name="yes_txt">Yes</string>
+    <string name="no_txt">No</string>
+
 
 
     //Pay Period Spinner Text
