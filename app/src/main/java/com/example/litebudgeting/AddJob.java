@@ -74,7 +74,7 @@ public class AddJob extends AppCompatActivity {
     }
 
     private void nextButtonClicked(){
-        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
         Income job1;
         String workName = findViewById(R.id.income_name_edit).toString();
@@ -105,13 +105,13 @@ public class AddJob extends AppCompatActivity {
             job1 = new Income(workName,is_salary, hourly, workHour, pay_period);
 
         }
-        int jobCount = sharedPref.getInt("jobCount", 0);
+        int jobCount = sharedPref.getInt(Keys.JOB_COUNTER, 1);
         jobCount++;
         Gson gson = new Gson();
         String json = gson.toJson(job1);
-        prefEdit.putString("job"+jobCount, json);
+        prefEdit.putString(Keys.JOB+jobCount, json);
         prefEdit.apply();
-        Intent intent = new Intent(this, SetupP2.class);
+        Intent intent = new Intent(this, NavMain.class);
         startActivity(intent);
     }
 }

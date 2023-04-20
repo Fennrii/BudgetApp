@@ -103,6 +103,7 @@
 
     //Home Nav Page Text
     <string name="txtTotalAmount">Total Amount:</string>
+    <string name="chartSwitchText">Change to ratio view</string>
     //End
 
 

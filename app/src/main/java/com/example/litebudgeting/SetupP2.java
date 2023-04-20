@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class SetupP2 extends AppCompatActivity {
 
@@ -44,7 +46,7 @@ public class SetupP2 extends AppCompatActivity {
     private void nextButtonClicked(){
 
 //      Update shared preferences
-        SharedPreferences sharedPref = getPreferences(MODE_PRIVATE);
+        SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
 
 //      Get values to be saved
@@ -57,23 +59,23 @@ public class SetupP2 extends AppCompatActivity {
 
 //      Convert values to floats. If the values are empty then put 0.0 instead
         float housing, water, elec, ac, car;
-        try{ housing = Float.parseFloat(housingEdit.toString());}
+        try{ housing = Float.parseFloat(housingEdit.getText().toString());}
         catch (Exception e){ housing = 0F;}
-        try{ water = Float.parseFloat(waterEdit.toString());}
+        try{ water = Float.parseFloat(waterEdit.getText().toString());}
         catch (Exception e){ water = 0F;}
-        try{ elec = Float.parseFloat(elecEdit.toString());}
+        try{ elec = Float.parseFloat(elecEdit.getText().toString());}
         catch (Exception e){ elec = 0F;}
-        try{ ac = Float.parseFloat(acEdit.toString());}
+        try{ ac = Float.parseFloat(acEdit.getText().toString());}
         catch (Exception e){ ac = 0F;}
-        try{ car = Float.parseFloat(carEdit.toString());}
+        try{ car = Float.parseFloat(carEdit.getText().toString());}
         catch (Exception e){ car = 0F;}
 
 //      Put the floats into shared preferences
-        prefEdit.putFloat("Housing", housing);
-        prefEdit.putFloat("Water", water);
-        prefEdit.putFloat("Elec", elec);
-        prefEdit.putFloat("AC", ac);
-        prefEdit.putFloat("Car", car);
+        prefEdit.putFloat(Keys.HOUSING, housing);
+        prefEdit.putFloat(Keys.WATER, water);
+        prefEdit.putFloat(Keys.ELECTRICITY, elec);
+        prefEdit.putFloat(Keys.AC, ac);
+        prefEdit.putFloat(Keys.CAR, car);
 
         prefEdit.apply();
 
