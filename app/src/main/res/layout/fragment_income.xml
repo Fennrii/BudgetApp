@@ -6,6 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".ui.income.IncomeFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:id="@+id/incomepg"/>
+
     <TextView
         android:id="@+id/textIncome"
         android:layout_width="match_parent"
@@ -18,9 +37,10 @@
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="75dp"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:id="@+id/incomeScreen"/>
 
 
@@ -30,7 +50,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="110dp"
         android:text="@string/extIncome"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -40,7 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="125dp"
         android:hint="@string/enter_here"
         android:inputType="phone"
         android:autofillHints="" />
@@ -51,7 +71,8 @@
         android:text="@string/btnSubmitForm"
         android:textSize="20sp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="160dp"
+        android:backgroundTint="@color/teal_200"
         android:id="@+id/extincomebtn"/>
 
 
@@ -61,6 +82,7 @@
         android:text="@string/txtincomechange"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="225dp"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
       />
@@ -72,6 +94,7 @@
         android:id="@+id/income_name_txt"
         android:text="@string/txtincomechangeboolean"
         android:textSize="18sp"
+        android:gravity="center"
         android:textStyle="bold"
         android:layout_marginStart="15dp"
         android:layout_marginTop="275dp"
@@ -89,8 +112,10 @@
         <RadioButton
             android:id="@+id/yes_change"
             android:text="Yes"
+            android:layout_marginLeft="140dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            />
 
         <RadioButton
             android:id="@+id/no_change"
@@ -102,17 +127,15 @@
 
 
     <TextView
+        android:id="@+id/txthrorsr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hryorsry"
-        android:layout_marginTop="75dp"
         android:layout_marginStart="15dp"
-        android:layout_below="@+id/income_name_txt"
+        android:layout_marginTop="380dp"
+        android:gravity="center"
+        android:text="@string/hryorsry"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:id="@+id/txthrorsr"
-        />
-
+        android:textStyle="bold" />
 
     <RadioGroup
         android:id="@+id/payment_form"
@@ -125,30 +148,31 @@
         <RadioButton
             android:id="@+id/hourly_change"
             android:text="@string/hourly_pay"
+            android:layout_marginLeft="130dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
         <RadioButton
             android:id="@+id/salary_change"
-            android:text="@string/salary_pay"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/salary_pay" />
 
     </RadioGroup>
 
 
-
-    <!-- Pay periods -->
     <TextView
         android:id="@+id/PayPeriod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/payment_form"
+        android:layout_alignParentEnd="false"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="162dp"
         android:text="@string/PayPrd"
         android:textSize="18sp"
-        android:layout_below="@id/payment_form"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="15dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <Spinner
         android:id="@+id/list_payprd"
@@ -263,10 +287,36 @@
         android:layout_height="wrap_content"
         android:text="@string/btnSubmitForm"
         android:textSize="20sp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="85dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/teal_200"
         android:id="@+id/btnSubmitJob"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="54dp"
+        android:src="@drawable/extramoney"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="110dp"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="54dp"
+        android:src="@drawable/baseline_add_24"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="90dp"
+        />
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="54dp"
+        android:src="@drawable/changejob"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="40dp"
+        />
 
 
 
