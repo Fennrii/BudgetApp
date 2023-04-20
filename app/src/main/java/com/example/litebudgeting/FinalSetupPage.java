@@ -27,7 +27,7 @@ public class FinalSetupPage extends AppCompatActivity {
 
 
     private void previousPageButton() {
-        Button backButton = (Button) findViewById(R.id.btnBackP2);
+        Button backButton = findViewById(R.id.btnBackP3);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +37,7 @@ public class FinalSetupPage extends AppCompatActivity {
     }
 
     private void submitFormButton() {
-        Button submitButton = (Button) findViewById(R.id.btnSubmit);
+        Button submitButton = findViewById(R.id.btnSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
