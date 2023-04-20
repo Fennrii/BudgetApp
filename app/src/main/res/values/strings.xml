@@ -9,34 +9,27 @@
 
     //Setup Page 1 Texts
     <string name="app_name">Lite Budgeting</string>
-    <string name="finance_txt">Setup Your Finances</string>
-    <string name="question1_txt">What form of payment do you receive?</string>
-    <string name="question2_txt">What type of pay period does your company have?</string>
-
+    <string name="finance_txt">Finances Setup</string>
+    <string name="question1_txt">2) What form of payment do you receive?</string>
+    <string name="question2_txt">3) What type of pay period does your company have?</string>
+    <string name="empty_int">0</string>
     //End
 
+
+
     //Setup Page 2 Texts
-    <string name="expenses_txt">Setup Your Expenses</string>
-    <string name="housing_txt">How much do you pay monthly for housing?</string>
-    <string name="water_txt">How much do you pay monthly for water?</string>
-    <string name="electric_txt">How much do you pay monthly for electricity?</string>
-    <string name="AC_txt">How much do you pay monthly for air conditioning?</string>
-    <string name="Car_txt">How much do you pay monthly for your car insurance?</string>
+    <string name="expenses_txt">Expenses Setup</string>
+    <string name="housing_txt">1) How much do you pay monthly for housing?</string>
+    <string name="water_txt">2) How much do you pay monthly for water?</string>
+    <string name="electric_txt">3) How much do you pay monthly for electricity?</string>
+    <string name="AC_txt">4) How much do you pay monthly for air conditioning?</string>
+    <string name="Car_txt">5) How much do you pay monthly for your car insurance?</string>
+    <string name="Health_txt">6) How much do you pay monthly for your health insurance?</string>
+    <string name="Transport_txt">7) How much do you pay monthly for transportation?</string>
+    <string name="Groc_txt">8) How much do you pay monthly for groceries?</string>
+    <string name="Loan_txt">9) How much do you pay monthly for loans?</string>
 
-    //Setup Page 3 Texts
-    <string name="Health_txt">How much do you pay monthly for health insurance?</string>
-    <string name="Transport_txt">How much do you pay monthly for transportation?</string>
-    <string name="Groc_txt">How much do you pay monthly for groceries?</string>
-    <string name="Loan_txt">What is the minimum amount that you spend on loans per month?</string>
 
-    //Subscriptions Page Texts
-    <string name="Subs_txt">Enter Your Subscriptions</string>
-    <string name="subName_txt">Subscription Name</string>
-    <string name="subCost_txt">Subscription Cost</string>
-    <string name="subName_hint">(e.g. Netflix, Disney+, etc.)</string>
-    <string name="addSub_txt">Would you like to add another subscription?</string>
-    <string name="yes_txt">Yes</string>
-    <string name="no_txt">No</string>
 
     //Pay Period Spinner Text
     <string-array name="pay_periods">
@@ -48,6 +41,7 @@
     //End
 
 
+
     //Payment types
     <string name="hourly_pay">Hourly</string>
     <string name="salary_pay">Salary</string>
@@ -55,33 +49,32 @@
     //End
 
 
+
     //Page Number Text
-    <string name="setup_page1">1/?</string>
-    <string name="setup_page2">2/?</string>
-    <string name="setup_page3">3/?</string>
-    <string name="setup_page4">4/?</string>
-    <string name="setup_page5">5/?</string>
+    <string name="setup_page1">1/4</string>
+    <string name="setup_page2">2/4</string>
+    <string name="setup_page3">3/4</string>
+    <string name="setup_page4">4/4</string>
     //End
 
-
-    //Setup Pages Buttons Text
-    <string name="empty_currency">$0.00</string>
-    <string name="current_cash_txt">How much money do you have in your bank account currently?</string>
-    <string name="hourly_work_txt">How many hours do you typically work a week?</string>
-    <string name="empty_int">0</string>
-    <string name="hourly_pay_txt_Q">How much do you get paid per hour?</string>
-    <string name="salary_questions">Salary / Government Assistance questions:</string>
-    <string name="hourly_questions">Hourly questions:</string>
-    <string name="Salary_text">How much is your monthly salary / Government Assistance?</string>
-    <string name="txt_PayType_HInt">Input information for your main job if you have more than one</string>
-    //End
 
 
     //Setup Pages Buttons Text
     <string name="btnNext">Next</string>
     <string name="btnBack">Back</string>
     <string name="btnSubmitForm">Submit</string>
+    <string name="empty_currency">$0.00</string>
+    <string name="current_cash_txt">How much money do you have in your bank account currently?</string>
+    <string name="cash_input_hint">$10.00</string>
+    <string name="hourly_work_txt">How many hours do you typically work a week?</string>
+    <string name="hr_hint">30</string>
+    <string name="hourly_pay_txt_Q">How much do you get paid per hour?</string>
+    <string name="salary_questions">Salary / Government Assistance questions:</string>
+    <string name="hourly_questions">Hourly questions:</string>
+    <string name="Salary_text">How much is your monthly salary / Government Assistance?</string>
     //End
+
+
 
     //Income page text
     <string name="incomeEnter">Please Enter Your Monthly Income.</string>
@@ -91,18 +84,27 @@
     <string name="enter_here">Enter Here</string>
     //End
 
+
+
     //Nav Menu
-    <string name="home_icon">Home</string>
+    <string name="home_icon">Summary</string>
     <string name="income_icon">Income</string>
     <string name="exp_icon">Expenses</string>
     <string name="add_Income">Add an Income Source</string>
-    <string name="income_name">Please input a name for this income source</string>
+    <string name="income_name">1) Please input a name for this income source</string>
     <string name="job_hint">Manager job, Bank teller, etc.</string>
+    <string name="title_home">Summary</string>
+    <string name="title_income">Income</string>
+    <string name="title_expenses">Expenses</string>
     <string name="AddJob_hint">Input information for your other job</string>
-
     //End
 
+    <string name="title_activity_nav_main">Lite Budgeting App</string>
 
+    //Home Nav Page Text
+    <string name="txtTotalAmount">Total Amount:</string>
+    <string name="chartSwitchText">Change to ratio view</string>
+    //End
 
 
 </resources>
