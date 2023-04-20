@@ -17,11 +17,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_below="@+id/textHome"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/txtTotalAmount"
         android:textSize="18sp"
         android:textStyle="bold"
         android:text="@string/txtTotalAmount"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="5dp"
+        android:text="@string/txtSetupFormbtn"
+        android:textStyle="bold"
+        android:id="@+id/btntoSetupForm"/>
 
     <View
         android:layout_width="match_parent"

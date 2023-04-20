@@ -10,70 +10,88 @@
         android:id="@+id/textIncome"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/incomeinfotxt"/>
-
+        android:layout_below="@+id/incomeScreen"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="45dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:id="@+id/incomeScreen"/>
 
     <TextView
-        android:id="@+id/incomeMonthly"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/deleteJobQ"
+        android:text="@string/deleteJobQuestion"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="100dp"
-        android:text="@string/incomeEnter"
+        android:layout_marginTop="130dp"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
-    <EditText
-        android:id="@+id/incometxt"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
+
+    <Spinner
+        android:id="@+id/list_jobTitles"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/deleteJobQ"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
-        android:hint="@string/enter_here"
-        android:inputType="phone"
-        android:autofillHints="" />
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="10dp"
+        android:spinnerMode="dropdown"
+        android:contentDescription="@string/content_description_deleteJob"
+        android:tooltipText="@string/tooltips_deleteJob"/>
 
     <TextView
         android:id="@+id/extIncome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="225dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/list_jobTitles"
         android:text="@string/extIncome"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+
+
     <EditText
         android:id="@+id/extIncometxt"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/extIncome"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="263dp"
+        android:layout_centerInParent="true"
         android:hint="@string/enter_here"
         android:inputType="phone"
         android:autofillHints="" />
 
     <TextView
-        android:id="@+id/incomeinfotxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/addJobQ"
+        android:layout_below="@id/extIncometxt"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="580dp"
-        android:text="@string/incomeinfo"
-        android:textAlignment="center"
+        android:layout_marginTop="20dp"
+        android:text="Click the button below to add a new job."
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:id="@+id/btnAddJobs"
+        android:layout_below="@id/addJobQ"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/addJob_button"
+        android:textStyle="bold"
+        android:textSize="18sp"/>
+
 </RelativeLayout>
