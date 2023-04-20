@@ -15,4 +15,5 @@ public class Keys {
     public static String TRANSPORT = "Transport";
     public static String GROCERIES = "Groceries";
     public static String LOAN = "Loan";
+    public static String NO_FORM = "No_Form";
 }
