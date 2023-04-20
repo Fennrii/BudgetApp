@@ -29,6 +29,9 @@
             android:name=".SetupP3"
             android:exported="false" />
         <activity
+            android:name=".Subs"
+            android:exported="false"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
