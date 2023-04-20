@@ -21,7 +21,7 @@ public class SetupP3 extends AppCompatActivity {
     }
 
     private void nextPageButton() {
-        Button nextButton = (Button) findViewById(R.id.btnNextP4);
+        Button nextButton = findViewById(R.id.btnNextP4);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,7 +31,7 @@ public class SetupP3 extends AppCompatActivity {
     }
 
     private void previousPageButton() {
-        Button backButton = (Button) findViewById(R.id.btnBackP2);
+        Button backButton = findViewById(R.id.btnBackP2);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
