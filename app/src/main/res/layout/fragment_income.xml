@@ -46,6 +46,7 @@
         android:contentDescription="@string/content_description_deleteJob"
         android:tooltipText="@string/tooltips_deleteJob"/>
 
+
     <TextView
         android:id="@+id/extIncome"
         android:layout_width="wrap_content"

@@ -45,6 +45,7 @@ public class IncomeFragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(), AddJob.class);
                 startActivity(intent);
+
             }
         });
     }
