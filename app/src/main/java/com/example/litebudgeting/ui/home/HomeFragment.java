@@ -30,6 +30,8 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
+    private PieChart pieChart;
+    private float totalIncome,housing, water, elec, ac, car, health, transport, groc, loan, needs, remainingIncome;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -40,12 +42,31 @@ public class HomeFragment extends Fragment {
 
         View root = binding.getRoot();
 
-        SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
 
         //Chart Code Example (Needs to have our data from Setup sheet.
         //There are other charts you can use if you want.
-        PieChart pieChart = root.findViewById(R.id.example_Chart);
+        pieChart = root.findViewById(R.id.example_Chart);
 
+
+        retrieveValues();
+        TextView incomeText = root.findViewById(R.id.showAmount);
+        incomeText.setText("$"+totalIncome);
+
+        itemizedPieChart();
+
+
+        final TextView textView = binding.textHome;
+        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        return root;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    private void itemizedPieChart(){
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5,10,5,5);
@@ -55,29 +76,6 @@ public class HomeFragment extends Fragment {
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
         pieChart.setTransparentCircleRadius(55f);
-
-        float totalIncome = 0;
-
-        for (int i = 1; i <= sharedPref.getInt(Keys.JOB_COUNTER,1); i++){
-            Gson gson = new Gson();
-            String json = sharedPref.getString(Keys.JOB+i, "");
-            Income job = gson.fromJson(json, Income.class);
-            totalIncome+=job.getPay();
-        }
-
-        float housing = sharedPref.getFloat(Keys.HOUSING, 0F);
-        float water = sharedPref.getFloat(Keys.WATER, 0F);
-        float elec = sharedPref.getFloat(Keys.ELECTRICITY, 0F);
-        float ac = sharedPref.getFloat(Keys.AC, 0F);
-        float car = sharedPref.getFloat(Keys.CAR, 0F);
-        float health = sharedPref.getFloat(Keys.HEALTH, 0F);
-        float transport = sharedPref.getFloat(Keys.TRANSPORT, 0F);
-        float groc = sharedPref.getFloat(Keys.GROCERIES, 0F);
-        float loan = sharedPref.getFloat(Keys.LOAN, 0F);
-
-        float neads = housing + water + elec + ac + car + health + transport + groc + loan;
-
-        float remainingIncome = totalIncome-neads;
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
@@ -129,14 +127,32 @@ public class HomeFragment extends Fragment {
 
         pieChart.setData(data);
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    private void retrieveValues(){
+        SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
+
+        totalIncome = 0;
+
+        for (int i = 1; i <= sharedPref.getInt(Keys.JOB_COUNTER,1); i++){
+            Gson gson = new Gson();
+            String json = sharedPref.getString(Keys.JOB+i, "");
+            Income job = gson.fromJson(json, Income.class);
+            totalIncome+=job.getPay();
+        }
+
+        housing = sharedPref.getFloat(Keys.HOUSING, 0F);
+        water = sharedPref.getFloat(Keys.WATER, 0F);
+        elec = sharedPref.getFloat(Keys.ELECTRICITY, 0F);
+        ac = sharedPref.getFloat(Keys.AC, 0F);
+        car = sharedPref.getFloat(Keys.CAR, 0F);
+        health = sharedPref.getFloat(Keys.HEALTH, 0F);
+        transport = sharedPref.getFloat(Keys.TRANSPORT, 0F);
+        groc = sharedPref.getFloat(Keys.GROCERIES, 0F);
+        loan = sharedPref.getFloat(Keys.LOAN, 0F);
+
+        needs = housing + water + elec + ac + car + health + transport + groc + loan;
+
+        remainingIncome = totalIncome-needs;
     }
 }

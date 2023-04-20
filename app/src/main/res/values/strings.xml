@@ -100,11 +100,14 @@
 
 
     //Income page text
-    <string name="incomeEnter">Please Enter Your Monthly Income.</string>
-    <string name="extIncome">Enter your extra income/profits</string>
-    <string name="incomeScreentxt">Income</string>
-    <string name="incomeinfo">Please Enter Only Whole Numbers In The Questions Above </string>
+    <string name="deleteJobQuestion">From this list, are there any jobs you want to delete?</string>
+    <string name="extIncome">Enter in any extra income/profits in the box below.</string>
+    <string name="incomeScreentxt">Income Changes</string>
+    <string name="content_description_deleteJob">List of your Job Titles</string>
+    <string name="tooltips_deleteJob">List of your Job Titles</string>
     <string name="enter_here">Enter Here</string>
+    <string name="addJob_button">Add Job</string>
+    <string name="addJob_text">Click the button below to add a new job.</string>
     //End
 
     //Expenses page text
