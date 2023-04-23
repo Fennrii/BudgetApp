@@ -293,30 +293,7 @@
         android:backgroundTint="@color/teal_200"
         android:id="@+id/btnSubmitJob"/>
 
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="54dp"
-        android:src="@drawable/extramoney"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="110dp"
-        />
 
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="54dp"
-        android:src="@drawable/baseline_add_24"
-        android:layout_marginTop="60dp"
-        android:layout_marginLeft="90dp"
-        />
-
-
-    <ImageView
-        android:layout_width="30dp"
-        android:layout_height="54dp"
-        android:src="@drawable/changejob"
-        android:layout_marginTop="210dp"
-        android:layout_marginLeft="40dp"
-        />
 
 
 

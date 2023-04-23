@@ -6,11 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".SetupP2">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/teal_200"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
     <!--Page Title-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/expenses_txt"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
@@ -44,6 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setup_page2"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -155,6 +165,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/teal_200"
         android:id="@+id/btnNextP3"
         tools:ignore="RelativeOverlap" />
 
@@ -167,6 +178,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
+        android:backgroundTint="@color/teal_200"
         android:id="@+id/btnBackP1"/>
 
 </RelativeLayout>
