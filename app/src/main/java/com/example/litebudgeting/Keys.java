@@ -4,7 +4,9 @@ public class Keys {
 
     public static String PREFS_KEY = "sharedPrefs";
     public static String JOB = "job";
+    public static String SUB = "sub";
     public static String JOB_COUNTER = "jobCount";
+    public static String SUB_COUNTER = "subCount";
     public static String BANK_SAVINGS = "BankAccount";
     public static String HOUSING = "Housing";
     public static String WATER = "Water";
