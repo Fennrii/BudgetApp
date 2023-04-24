@@ -17,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.litebudgeting.AddSubs;
 import com.example.litebudgeting.Income;
 import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.R;
@@ -26,10 +27,8 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
-
 
 import java.util.ArrayList;
 
@@ -270,6 +269,13 @@ public class HomeFragment extends Fragment {
 
         subs = 0;
 
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,1); i++){
+            Gson gson = new Gson();
+            String json = sharedPref.getString(Keys.SUB+i, "");
+            AddSubs sub = gson.fromJson(json, AddSubs.class);
+            subs+=sub.getSubCost();
+        }
+
         extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
         totalIncome += extraIncome;
         housing = sharedPref.getFloat(Keys.HOUSING, 0F);
@@ -282,7 +288,7 @@ public class HomeFragment extends Fragment {
         groc = sharedPref.getFloat(Keys.GROCERIES, 0F);
         loan = sharedPref.getFloat(Keys.LOAN, 0F);
 
-        needs = housing + water + elec + ac + car + health + transport + groc + loan;
+        needs = housing + water + elec + ac + car + health + transport + groc + loan + subs;
 
         remainingIncome = totalIncome-needs;
     }
