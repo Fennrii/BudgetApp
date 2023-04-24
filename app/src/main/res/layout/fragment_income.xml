@@ -6,206 +6,126 @@
     android:layout_height="match_parent"
     tools:context=".ui.income.IncomeFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Income"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="12dp"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:id="@+id/incomepg"/>
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:srcCompat="@android:drawable/bottom_bar"
+        app:tint="@color/teal_200" />
 
     <TextView
         android:id="@+id/textIncome"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-    />
-
+        android:layout_below="@+id/incomeScreen"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="75dp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         android:id="@+id/incomeScreen"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deleteJobQ"
+        android:text="@string/deleteJobQuestion"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="130dp"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+
+    <Spinner
+        android:id="@+id/list_jobTitles"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/deleteJobQ"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:contentDescription="@string/content_description_deleteJob"
+        android:spinnerMode="dropdown"
+        android:tooltipText="@string/tooltips_deleteJob" />
+
+    <Button
+        android:id="@+id/btnDeleteJobs"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/list_jobTitles"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Delete Job"
+        android:backgroundTint="@color/teal_200"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/extIncome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/btnDeleteJobs"
         android:text="@string/extIncome"
         android:textSize="18sp"
         android:textStyle="bold" />
 
+
+
     <EditText
         android:id="@+id/extIncometxt"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/extIncome"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+        android:layout_centerInParent="true"
         android:hint="@string/enter_here"
-        android:inputType="phone"
+        android:inputType="numberDecimal"
         android:autofillHints="" />
 
     <Button
+        android:id="@+id/btnAddIncome"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnSubmitForm"
-        android:textSize="20sp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/extIncometxt"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:text="Submit"
         android:backgroundTint="@color/teal_200"
-        android:id="@+id/extincomebtn"/>
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay Change"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="225dp"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-      />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/income_name_txt"
-        android:text="Do you want to switch your job?"
         android:textSize="18sp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="275dp"
-        />
+        android:textStyle="bold" />
 
-    <RadioGroup
-        android:id="@+id/income_change"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/income_name_txt"
-        android:orientation="horizontal"
+        android:id="@+id/addJobQ"
+        android:layout_below="@id/btnAddIncome"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/addJob_text"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/btnAddJobs"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/addJobQ"
+        android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp">
-
-        <RadioButton
-            android:id="@+id/yes_change"
-            android:text="Yes"
-            android:layout_marginLeft="140dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            />
-
-        <RadioButton
-            android:id="@+id/no_change"
-            android:text="No"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </RadioGroup>
-
-
-    <TextView
-        android:id="@+id/txthrorsr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="380dp"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:text="Pay Period"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <RadioGroup
-        android:id="@+id/payment_form"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txthrorsr"
-        android:orientation="horizontal"
-        android:layout_marginStart="10dp">
-
-        <RadioButton
-            android:id="@+id/hourly_change"
-            android:text="@string/hourly_pay"
-            android:layout_marginLeft="130dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/salary_change"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/salary_pay" />
-
-    </RadioGroup>
-
-
-    <TextView
-        android:id="@+id/PayPeriod"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/payment_form"
-        android:layout_alignParentEnd="false"
-        android:layout_marginStart="15dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp"
-        android:layout_marginEnd="162dp"
-        android:text="Pay Amount"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-
-
-    <TextView
-        android:id="@+id/payamt"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignParentEnd="false"
-        android:layout_marginTop="550dp"
-        android:layout_marginEnd="162dp"
-        android:layout_centerHorizontal="true"
-        android:hint="@string/enter_here"
-        android:inputType="phone"
-        android:autofillHints="" />
-
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/btnSubmitForm"
-        android:textSize="20sp"
-        android:layout_marginBottom="85dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:text="@string/addJob_button"
         android:backgroundTint="@color/teal_200"
-        android:id="@+id/btnSubmitJob"/>
-
-
-
-
-
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

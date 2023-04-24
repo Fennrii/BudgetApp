@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".ui.expenses.ExpensesFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:srcCompat="@android:drawable/bottom_bar"
+        app:tint="@color/teal_200" />
 
     <TextView
         android:id="@+id/text_notifications"
@@ -33,7 +35,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/housing_expense_txt"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="70dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:id="@+id/housing_txt"
@@ -255,10 +257,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/edit_btn"
+                android:backgroundTint="@color/teal_200"
                 android:textSize="20sp"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="15dp"
-                android:backgroundTint="@color/teal_200"
                 android:layout_below="@id/loan_txt"
                 android:id="@+id/btnEdit"/>
 
@@ -270,7 +272,6 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
                 android:layout_alignParentRight="true"
-
                 android:spinnerMode="dropdown"
                 android:contentDescription="@string/spinner_description"
                 android:tooltipText="@string/spinner_description"/>
