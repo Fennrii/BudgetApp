@@ -8,9 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -19,9 +22,11 @@ import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.R;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -46,6 +51,8 @@ public class HomeFragment extends Fragment {
     private float remainingIncome;
     private float oldIncome;
     private float extraIncome;
+    private float subs;
+    private Switch switch2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -68,11 +75,29 @@ public class HomeFragment extends Fragment {
         incomeText.setText("$"+remainingIncome);
 
         itemizedPieChart();
-
+//        ratioPieChart();
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        switch2 = view.findViewById(R.id.switch2);
+        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                if (isChecked){
+                    ratioPieChart();
+                }
+                else {
+                    itemizedPieChart();
+                }
+            }
+        });
+
     }
 
     @Override
@@ -112,17 +137,27 @@ public class HomeFragment extends Fragment {
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setEntryLabelColor(Color.BLACK);
 
         pieChart.setDragDecelerationFrictionCoef(0.95f);
+        pieChart.animateX(500);
+        pieChart.animate();
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
         pieChart.setTransparentCircleRadius(55f);
+        pieChart.getLegend().setWordWrapEnabled(true);
+        pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
 
-
+        if(remainingIncome > 0) {
+            yValues.add(new PieEntry(remainingIncome, "Remaining"));
+        }
+        if(subs > 0){
+            yValues.add(new PieEntry(subs, "Subscriptions"));
+        }
         if(housing > 0) {
             yValues.add(new PieEntry(housing, "Housing"));
         }
@@ -150,15 +185,17 @@ public class HomeFragment extends Fragment {
         if(loan > 0) {
             yValues.add(new PieEntry(loan, "Loans"));
         }
-        if(remainingIncome > 0) {
-            yValues.add(new PieEntry(remainingIncome, "Remaining"));
-        }
 
 
-        PieDataSet dataSet = new PieDataSet(yValues, "Expenses");
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
+        dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600"),
+                ColorTemplate.rgb("#e60000"), ColorTemplate.rgb("#e6ac00"), ColorTemplate.rgb("#e67300"),
+                ColorTemplate.rgb("#00e6ac"), ColorTemplate.rgb("#00e6e6"), ColorTemplate.rgb("#00ace6"),
+                ColorTemplate.rgb("#7300e6"), ColorTemplate.rgb("#ac00e6"), ColorTemplate.rgb("#e600e6"),
+                ColorTemplate.rgb("#e60073")}));
 
 
         PieData data = new PieData((dataSet));
@@ -169,6 +206,54 @@ public class HomeFragment extends Fragment {
 
         pieChart.setData(data);
 
+    }
+
+    private void ratioPieChart(){
+        pieChart.setUsePercentValues(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setEntryLabelColor(Color.BLACK);
+
+        pieChart.animateX(500);
+        pieChart.animate();
+
+        pieChart.setDragDecelerationFrictionCoef(0.95f);
+
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(55f);
+        pieChart.getLegend().setWordWrapEnabled(true);
+
+        ArrayList<PieEntry> yValues = new ArrayList<>();
+
+
+        if(remainingIncome > 0) {
+            yValues.add(new PieEntry(remainingIncome, "Remaining"));
+        }
+        if(housing > 0) {
+            yValues.add(new PieEntry(needs, "Living Expenses"));
+        }
+        if(subs > 0) {
+            yValues.add(new PieEntry(subs, "Subscriptions"));
+        }
+
+
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600")
+                ,ColorTemplate.rgb("#FF5C33")}));
+
+
+        PieData data = new PieData((dataSet));
+        data.setValueTextSize(10f);
+        data.setValueTextColor(Color.BLACK);
+
+
+
+
+        pieChart.setData(data);
     }
 
     private void retrieveValues(){
@@ -182,6 +267,8 @@ public class HomeFragment extends Fragment {
             Income job = gson.fromJson(json, Income.class);
             totalIncome+=job.getPay();
         }
+
+        subs = 0;
 
         extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
         totalIncome += extraIncome;
