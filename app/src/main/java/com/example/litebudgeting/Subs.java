@@ -1,18 +1,13 @@
 package com.example.litebudgeting;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class Subs extends AppCompatActivity {
     @Override
@@ -44,55 +39,26 @@ public class Subs extends AppCompatActivity {
         previousPageButton();
         submitFormButton();
     }
+
     private void nextPageButton() {
         Button nextButton = (Button) findViewById(R.id.btnNextP5);
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Subs.this, Subs.class));
-
             }
         });
     }
 
-    private void submitFormButton(){
+    private void submitFormButton() {
         Button submitButton = findViewById(R.id.btnSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Setting up Shared Prefs
-                SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
-                SharedPreferences.Editor prefEdit = sharedPref.edit();
-
-                //Initiating Object
-                AddSubs sub1;
-
-                EditText subName = findViewById(R.id.subName_edit); //change Id
-                String subNameStr = subName.toString();
-                EditText subEdit = findViewById(R.id.subCost_edit); //Change Id
-                String subStr = subEdit.getText().toString();
-                float subDollar;
-                try{subDollar = Float.parseFloat(subStr);}
-                catch(Exception e){
-                    subDollar = 0F;
-                }
-                Log.d("DebugSubName", "Value: " + subNameStr);
-                Log.d("DebugSubCost", "Value: " + subStr);
-
-                sub1 = new AddSubs(subNameStr, subDollar);
-
-                int subCount = sharedPref.getInt(Keys.SUB_COUNTER, 1);
-                subCount++;
-                Gson gson = new Gson();
-                String json1 = gson.toJson(sub1);
-                prefEdit.putString(Keys.SUB+subCount, json1);
-                prefEdit.apply();
-                Intent intent = new Intent(Subs.this, NavMain.class);
-                startActivity(intent);
+                startActivity(new Intent(Subs.this, NavMain.class));
             }
         });
     }
-
 
     private void previousPageButton() {
         Button backButton = (Button) findViewById(R.id.btnBackP3);
