@@ -45,7 +45,7 @@ public class Income {
             return salary_pay;
         }
         else {
-            return hourly_pay * hours_worked;
+            return hourly_pay * hours_worked * 4;
         }
     }
 

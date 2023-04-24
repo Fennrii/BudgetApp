@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,20 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private PieChart pieChart;
-    private float totalIncome,housing, water, elec, ac, car, health, transport, groc, loan, needs, remainingIncome;
+    private float totalIncome;
+    private float housing;
+    private float water;
+    private float elec;
+    private float ac;
+    private float car;
+    private float health;
+    private float transport;
+    private float groc;
+    private float loan;
+    private float needs;
+    private float remainingIncome;
+    private float oldIncome;
+    private float extraIncome;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,8 +63,9 @@ public class HomeFragment extends Fragment {
 
 
         retrieveValues();
+        oldIncome=totalIncome;
         TextView incomeText = root.findViewById(R.id.showAmount);
-        incomeText.setText("$"+totalIncome);
+        incomeText.setText("$"+remainingIncome);
 
         itemizedPieChart();
 
@@ -59,6 +74,33 @@ public class HomeFragment extends Fragment {
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Log.d("onResumeCalled", "HomeFragment Called onResume");
+        Log.d("increaseTotalIncome", "OldIncome = "+totalIncome);
+        retrieveValues();
+        Log.d("increaseTotalIncome", "NewIncome = "+totalIncome);
+        if (oldIncome!=totalIncome) {
+            Log.d("onResumeCalled", "HomeFragment if statement called");
+            View root = binding.getRoot();
+
+
+            //Chart Code Example (Needs to have our data from Setup sheet.
+            //There are other charts you can use if you want.
+            pieChart = root.findViewById(R.id.example_Chart);
+
+
+            TextView incomeText = root.findViewById(R.id.showAmount);
+            incomeText.setText("$" + remainingIncome);
+
+            itemizedPieChart();
+            this.getActivity().recreate();
+        }
+    }
+
 
     @Override
     public void onDestroyView() {
@@ -109,7 +151,7 @@ public class HomeFragment extends Fragment {
             yValues.add(new PieEntry(loan, "Loans"));
         }
         if(remainingIncome > 0) {
-            yValues.add(new PieEntry(remainingIncome, "Unallocated"));
+            yValues.add(new PieEntry(remainingIncome, "Remaining"));
         }
 
 
@@ -141,6 +183,8 @@ public class HomeFragment extends Fragment {
             totalIncome+=job.getPay();
         }
 
+        extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
+        totalIncome += extraIncome;
         housing = sharedPref.getFloat(Keys.HOUSING, 0F);
         water = sharedPref.getFloat(Keys.WATER, 0F);
         elec = sharedPref.getFloat(Keys.ELECTRICITY, 0F);
