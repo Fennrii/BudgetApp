@@ -139,7 +139,7 @@
     <string name="title_activity_nav_main">Lite Budgeting App</string>
 
     //Home Nav Page Text
-    <string name="txtTotalAmount">Total Amount:</string>
+    <string name="txtTotalAmount">Total Remaining this Month:</string>
     <string name="chartSwitchText">Change to ratio view</string>
     //End
 

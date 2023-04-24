@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -18,9 +22,11 @@ import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.R;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
+import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -31,7 +37,22 @@ public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
     private PieChart pieChart;
-    private float totalIncome,housing, water, elec, ac, car, health, transport, groc, loan, needs, remainingIncome;
+    private float totalIncome;
+    private float housing;
+    private float water;
+    private float elec;
+    private float ac;
+    private float car;
+    private float health;
+    private float transport;
+    private float groc;
+    private float loan;
+    private float needs;
+    private float remainingIncome;
+    private float oldIncome;
+    private float extraIncome;
+    private float subs;
+    private Switch switch2;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -49,16 +70,62 @@ public class HomeFragment extends Fragment {
 
 
         retrieveValues();
+        oldIncome=totalIncome;
         TextView incomeText = root.findViewById(R.id.showAmount);
-        incomeText.setText("$"+totalIncome);
+        incomeText.setText("$"+remainingIncome);
 
         itemizedPieChart();
-
+//        ratioPieChart();
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        switch2 = view.findViewById(R.id.switch2);
+        switch2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                // do something, the isChecked will be
+                // true if the switch is in the On position
+                if (isChecked){
+                    ratioPieChart();
+                }
+                else {
+                    itemizedPieChart();
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Log.d("onResumeCalled", "HomeFragment Called onResume");
+        Log.d("increaseTotalIncome", "OldIncome = "+totalIncome);
+        retrieveValues();
+        Log.d("increaseTotalIncome", "NewIncome = "+totalIncome);
+        if (oldIncome!=totalIncome) {
+            Log.d("onResumeCalled", "HomeFragment if statement called");
+            View root = binding.getRoot();
+
+
+            //Chart Code Example (Needs to have our data from Setup sheet.
+            //There are other charts you can use if you want.
+            pieChart = root.findViewById(R.id.example_Chart);
+
+
+            TextView incomeText = root.findViewById(R.id.showAmount);
+            incomeText.setText("$" + remainingIncome);
+
+            itemizedPieChart();
+            this.getActivity().recreate();
+        }
+    }
+
 
     @Override
     public void onDestroyView() {
@@ -70,17 +137,27 @@ public class HomeFragment extends Fragment {
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setEntryLabelColor(Color.BLACK);
 
         pieChart.setDragDecelerationFrictionCoef(0.95f);
+        pieChart.animateX(500);
+        pieChart.animate();
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
         pieChart.setTransparentCircleRadius(55f);
+        pieChart.getLegend().setWordWrapEnabled(true);
+        pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
 
-
+        if(remainingIncome > 0) {
+            yValues.add(new PieEntry(remainingIncome, "Remaining"));
+        }
+        if(subs > 0){
+            yValues.add(new PieEntry(subs, "Subscriptions"));
+        }
         if(housing > 0) {
             yValues.add(new PieEntry(housing, "Housing"));
         }
@@ -108,15 +185,17 @@ public class HomeFragment extends Fragment {
         if(loan > 0) {
             yValues.add(new PieEntry(loan, "Loans"));
         }
-        if(remainingIncome > 0) {
-            yValues.add(new PieEntry(remainingIncome, "Unallocated"));
-        }
 
 
-        PieDataSet dataSet = new PieDataSet(yValues, "Expenses");
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
-        dataSet.setColors(ColorTemplate.PASTEL_COLORS);
+        dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600"),
+                ColorTemplate.rgb("#e60000"), ColorTemplate.rgb("#e6ac00"), ColorTemplate.rgb("#e67300"),
+                ColorTemplate.rgb("#00e6ac"), ColorTemplate.rgb("#00e6e6"), ColorTemplate.rgb("#00ace6"),
+                ColorTemplate.rgb("#7300e6"), ColorTemplate.rgb("#ac00e6"), ColorTemplate.rgb("#e600e6"),
+                ColorTemplate.rgb("#e60073")}));
 
 
         PieData data = new PieData((dataSet));
@@ -127,6 +206,54 @@ public class HomeFragment extends Fragment {
 
         pieChart.setData(data);
 
+    }
+
+    private void ratioPieChart(){
+        pieChart.setUsePercentValues(false);
+        pieChart.getDescription().setEnabled(false);
+        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setEntryLabelColor(Color.BLACK);
+
+        pieChart.animateX(500);
+        pieChart.animate();
+
+        pieChart.setDragDecelerationFrictionCoef(0.95f);
+
+        pieChart.setDrawHoleEnabled(true);
+        pieChart.setHoleColor(Color.WHITE);
+        pieChart.setTransparentCircleRadius(55f);
+        pieChart.getLegend().setWordWrapEnabled(true);
+
+        ArrayList<PieEntry> yValues = new ArrayList<>();
+
+
+        if(remainingIncome > 0) {
+            yValues.add(new PieEntry(remainingIncome, "Remaining"));
+        }
+        if(housing > 0) {
+            yValues.add(new PieEntry(needs, "Living Expenses"));
+        }
+        if(subs > 0) {
+            yValues.add(new PieEntry(subs, "Subscriptions"));
+        }
+
+
+
+        PieDataSet dataSet = new PieDataSet(yValues, "");
+        dataSet.setSliceSpace(3f);
+        dataSet.setSelectionShift(5f);
+        dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600")
+                ,ColorTemplate.rgb("#FF5C33")}));
+
+
+        PieData data = new PieData((dataSet));
+        data.setValueTextSize(10f);
+        data.setValueTextColor(Color.BLACK);
+
+
+
+
+        pieChart.setData(data);
     }
 
     private void retrieveValues(){
@@ -141,6 +268,10 @@ public class HomeFragment extends Fragment {
             totalIncome+=job.getPay();
         }
 
+        subs = 0;
+
+        extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
+        totalIncome += extraIncome;
         housing = sharedPref.getFloat(Keys.HOUSING, 0F);
         water = sharedPref.getFloat(Keys.WATER, 0F);
         elec = sharedPref.getFloat(Keys.ELECTRICITY, 0F);
