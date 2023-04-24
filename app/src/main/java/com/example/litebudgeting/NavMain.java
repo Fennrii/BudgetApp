@@ -6,13 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.litebudgeting.ui.income.IncomeViewModel;
-import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.PieData;
-import com.github.mikephil.charting.data.PieDataSet;
-import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.IValueFormatter;
-import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +15,6 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.litebudgeting.databinding.ActivityNavMainBinding;
-
 
 public class NavMain extends AppCompatActivity {
 
@@ -72,7 +64,6 @@ public class NavMain extends AppCompatActivity {
                 SharedPreferences.Editor prefEdit = sharedPref.edit();
                 prefEdit.putBoolean(Keys.NO_FORM, false);
                 prefEdit.apply();
-
 
             }
         });

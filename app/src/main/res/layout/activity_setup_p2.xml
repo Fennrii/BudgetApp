@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".SetupP2">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/teal_200"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:srcCompat="@android:drawable/bottom_bar"
+        tools:srcCompat="@android:drawable/bottom_bar"
+        app:tint="@color/teal_200" />
 
     <!--Page Title-->
     <TextView
@@ -160,12 +162,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnNext"
+        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/teal_200"
         android:id="@+id/btnNextP3"
         tools:ignore="RelativeOverlap" />
 
@@ -173,12 +175,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnBack"
+        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginStart="50dp"
-        android:backgroundTint="@color/teal_200"
         android:id="@+id/btnBackP1"/>
 
 </RelativeLayout>
