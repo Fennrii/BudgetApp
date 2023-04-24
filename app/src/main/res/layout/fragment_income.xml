@@ -38,13 +38,23 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/deleteJobQ"
-        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
-        android:spinnerMode="dropdown"
+        android:layout_marginTop="5dp"
         android:contentDescription="@string/content_description_deleteJob"
-        android:tooltipText="@string/tooltips_deleteJob"/>
+        android:spinnerMode="dropdown"
+        android:tooltipText="@string/tooltips_deleteJob" />
+
+    <Button
+        android:id="@+id/btnDeleteJobs"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/list_jobTitles"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10dp"
+        android:text="Delete Job"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/extIncome"
@@ -52,7 +62,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/list_jobTitles"
+        android:layout_below="@id/btnDeleteJobs"
         android:text="@string/extIncome"
         android:textSize="18sp"
         android:textStyle="bold" />
@@ -68,14 +78,24 @@
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
         android:hint="@string/enter_here"
-        android:inputType="phone"
+        android:inputType="numberDecimal"
         android:autofillHints="" />
+    <Button
+        android:id="@+id/btnAddIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_below="@id/extIncometxt"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="5dp"
+        android:text="Submit"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/addJobQ"
-        android:layout_below="@id/extIncometxt"
+        android:layout_below="@id/btnAddIncome"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/addJob_text"
