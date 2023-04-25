@@ -26,9 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
+        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
-        android:textColor="@color/white"
         android:textSize="20sp"
         android:textStyle="bold"
         android:id="@+id/incomeScreen"/>
@@ -37,6 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/deleteJobQ"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
         android:text="@string/deleteJobQuestion"
         android:layout_marginStart="10dp"
         android:layout_marginTop="130dp"
@@ -110,6 +112,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/addJobQ"
         android:layout_below="@id/btnAddIncome"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         android:text="@string/addJob_text"
@@ -123,8 +126,8 @@
         android:layout_below="@id/addJobQ"
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
-        android:text="@string/addJob_button"
         android:backgroundTint="@color/teal_200"
+        android:text="@string/addJob_button"
         android:textSize="18sp"
         android:textStyle="bold" />
 

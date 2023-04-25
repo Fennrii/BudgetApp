@@ -273,6 +273,7 @@
                 android:layout_marginRight="15dp"
                 android:layout_alignParentRight="true"
                 android:spinnerMode="dropdown"
+                android:backgroundTint="@color/teal_200"
                 android:contentDescription="@string/spinner_description"
                 android:tooltipText="@string/spinner_description"/>
         </RelativeLayout>
