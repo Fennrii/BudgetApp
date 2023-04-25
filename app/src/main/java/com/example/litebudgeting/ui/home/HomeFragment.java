@@ -1,16 +1,21 @@
 package com.example.litebudgeting.ui.home;
 
+import static android.service.controls.ControlsProviderService.TAG;
+
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,9 +28,12 @@ import com.example.litebudgeting.R;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -137,6 +145,8 @@ public class HomeFragment extends Fragment {
         pieChart.getDescription().setEnabled(false);
         pieChart.setExtraOffsets(5,10,5,5);
         pieChart.setEntryLabelColor(Color.BLACK);
+        pieChart.setDrawEntryLabels(false);
+
 
         pieChart.setDragDecelerationFrictionCoef(0.95f);
         pieChart.animateX(500);
@@ -148,12 +158,16 @@ public class HomeFragment extends Fragment {
         pieChart.getLegend().setWordWrapEnabled(true);
         pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
+
+
         ArrayList<PieEntry> yValues = new ArrayList<>();
 
 
         if(remainingIncome > 0) {
 
             yValues.add(new PieEntry(remainingIncome, "Remaining"));
+
+
         }
         if(subs > 0){
             yValues.add(new PieEntry(subs, "Subscriptions"));
@@ -196,11 +210,35 @@ public class HomeFragment extends Fragment {
                 ColorTemplate.rgb("#00e6ac"), ColorTemplate.rgb("#00e6e6"), ColorTemplate.rgb("#00ace6"),
                 ColorTemplate.rgb("#7300e6"), ColorTemplate.rgb("#ac00e6"), ColorTemplate.rgb("#e600e6"),
                 ColorTemplate.rgb("#e60073")}));
+        //dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry entry, Highlight h) {
+                // Get the value and label of the selected slice
+                String value = String.valueOf(entry.getY());
+                String label = ((PieEntry) entry).getLabel();
+
+                // Create and show a dialog to display the selected data
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(label)
+                        .setMessage("The cost for your "+label+" is "+value+" dollars.")
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+
 
 
         PieData data = new PieData((dataSet));
         data.setValueTextSize(10f);
         data.setValueTextColor(Color.BLACK);
+
 
 
 
@@ -247,7 +285,7 @@ public class HomeFragment extends Fragment {
 
 
         PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
+        data.setValueTextSize(15f);
         data.setValueTextColor(Color.BLACK);
 
 
