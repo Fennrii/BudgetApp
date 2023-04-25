@@ -77,7 +77,8 @@ public class AddJob extends AppCompatActivity {
         SharedPreferences sharedPref = getApplicationContext().getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
         Income job1;
-        String workName = findViewById(R.id.income_name_edit).toString();
+        EditText workNameEdit = findViewById(R.id.income_name_edit);
+        String workName = workNameEdit.getText().toString();
         if (is_salary){
             EditText salaryEdit = findViewById(R.id.salary_edit);
             String salaryStr = salaryEdit.getText().toString();
@@ -90,14 +91,14 @@ public class AddJob extends AppCompatActivity {
         }
         else{
             EditText hourlyEdit = findViewById(R.id.hourly_pay_edit);
-            String hourlyStr = hourlyEdit.toString();
+            String hourlyStr = hourlyEdit.getText().toString();
             float hourly,workHour;
             try{hourly = Float.parseFloat(hourlyStr);}
             catch (Exception e){
                 hourly = 0F;
             }
             EditText workHourEdit = findViewById(R.id.hourly_work_edit);
-            String workHourStr = workHourEdit.toString();
+            String workHourStr = workHourEdit.getText().toString();
             try{workHour = Float.parseFloat(workHourStr);}
             catch (Exception e){
                 workHour = 0F;
@@ -110,6 +111,7 @@ public class AddJob extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(job1);
         prefEdit.putString(Keys.JOB+jobCount, json);
+        prefEdit.putInt(Keys.JOB_COUNTER,jobCount);
         prefEdit.apply();
         Intent intent = new Intent(this, NavMain.class);
         startActivity(intent);

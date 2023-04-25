@@ -16,4 +16,7 @@ public class Keys {
     public static String GROCERIES = "Groceries";
     public static String LOAN = "Loan";
     public static String NO_FORM = "No_Form";
+    public static String EXTRA_INCOME = "Extra_Income";
+    public static String SUB = "sub";
+    public static String SUB_COUNTER = "subCount";
 }
