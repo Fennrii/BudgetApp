@@ -6,22 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".SetupP3">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
-
     <!--Page Title-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/expenses_txt"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
@@ -55,7 +44,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setup_page3"
-        android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -138,7 +126,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnNext"
-        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
@@ -151,7 +138,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnBack"
-        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"

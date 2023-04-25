@@ -4,25 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".AddJob">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
 
     <!--Page Title-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/add_Income"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
@@ -83,7 +72,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txtPaymentTypeQ_hint"
         android:orientation="horizontal"
-        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp">
 
         <RadioButton
@@ -114,7 +102,6 @@
         android:layout_height="wrap_content"
         android:text="@string/question2_txt"
         android:textSize="18sp"
-        android:gravity="center"
         android:layout_below="@id/payment_form"
         android:layout_marginTop="10dp"
         android:layout_marginStart="15dp"
@@ -232,7 +219,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnSubmitForm"
-        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"

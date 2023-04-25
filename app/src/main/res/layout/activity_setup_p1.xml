@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Page one of setups-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SetupP1">
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
 
 
     <!--Page Title-->
@@ -23,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finance_txt"
-        android:textColor="@color/white"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:textSize="20sp"
@@ -36,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setup_page1"
-        android:textColor="@color/white"
         android:textSize="18sp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -126,7 +113,6 @@
         android:layout_height="wrap_content"
         android:text="@string/question2_txt"
         android:textSize="18sp"
-        android:gravity="center"
         android:layout_below="@id/payment_form"
         android:layout_marginTop="5dp"
         android:layout_marginStart="15dp"
@@ -246,10 +232,8 @@
         android:layout_above="@+id/current_cash_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
-        android:layout_centerHorizontal="true"
         android:textSize="18sp"
         android:textStyle="bold"
         android:id="@+id/current_cash"/>
@@ -273,7 +257,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnNext"
-        android:backgroundTint="@color/teal_200"
         android:textSize="20sp"
         android:layout_marginBottom="5dp"
         android:layout_alignParentBottom="true"
