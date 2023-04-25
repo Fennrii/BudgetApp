@@ -26,7 +26,6 @@ import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.interfaces.datasets.IPieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -153,6 +152,7 @@ public class HomeFragment extends Fragment {
 
 
         if(remainingIncome > 0) {
+
             yValues.add(new PieEntry(remainingIncome, "Remaining"));
         }
         if(subs > 0){
