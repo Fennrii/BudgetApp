@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.income.IncomeFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
-
     <TextView
         android:id="@+id/textIncome"
         android:layout_width="match_parent"
@@ -27,8 +17,7 @@
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="15dp"
-        android:textColor="@color/white"
+        android:layout_marginTop="45dp"
         android:textSize="20sp"
         android:textStyle="bold"
         android:id="@+id/incomeScreen"/>
@@ -64,7 +53,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:text="Delete Job"
-        android:backgroundTint="@color/teal_200"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -92,7 +80,6 @@
         android:hint="@string/enter_here"
         android:inputType="numberDecimal"
         android:autofillHints="" />
-
     <Button
         android:id="@+id/btnAddIncome"
         android:layout_width="wrap_content"
@@ -101,7 +88,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="5dp"
         android:text="Submit"
-        android:backgroundTint="@color/teal_200"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -124,7 +110,6 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:text="@string/addJob_button"
-        android:backgroundTint="@color/teal_200"
         android:textSize="18sp"
         android:textStyle="bold" />
 
