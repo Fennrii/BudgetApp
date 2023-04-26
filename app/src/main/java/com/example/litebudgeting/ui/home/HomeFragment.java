@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
         incomeText.setText("$"+remainingIncome);
 
         itemizedPieChart();
-//        ratioPieChart();
+        //ratioPieChart();
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -143,7 +143,7 @@ public class HomeFragment extends Fragment {
     private void itemizedPieChart(){
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setExtraOffsets(20,10,20,5);
         pieChart.setEntryLabelColor(Color.BLACK);
         pieChart.setDrawEntryLabels(false);
 
@@ -154,7 +154,8 @@ public class HomeFragment extends Fragment {
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(55f);
+        pieChart.setHoleRadius(42);
+        pieChart.setTransparentCircleRadius(52f);
         pieChart.getLegend().setWordWrapEnabled(true);
         pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
@@ -210,7 +211,7 @@ public class HomeFragment extends Fragment {
                 ColorTemplate.rgb("#00e6ac"), ColorTemplate.rgb("#00e6e6"), ColorTemplate.rgb("#00ace6"),
                 ColorTemplate.rgb("#7300e6"), ColorTemplate.rgb("#ac00e6"), ColorTemplate.rgb("#e600e6"),
                 ColorTemplate.rgb("#e60073")}));
-        //dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
             public void onValueSelected(Entry entry, Highlight h) {
@@ -218,12 +219,8 @@ public class HomeFragment extends Fragment {
                 String value = String.valueOf(entry.getY());
                 String label = ((PieEntry) entry).getLabel();
 
-                // Create and show a dialog to display the selected data
-                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-                builder.setTitle(label)
-                        .setMessage("The cost for your "+label+" is "+value+" dollars.")
-                        .setPositiveButton("OK", null)
-                        .show();
+                Toast toast=Toast.makeText(getContext(),label+" "+value,Toast.LENGTH_SHORT);
+                toast.show();
             }
 
             @Override
@@ -236,7 +233,7 @@ public class HomeFragment extends Fragment {
 
 
         PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
+        data.setValueTextSize(12f);
         data.setValueTextColor(Color.BLACK);
 
 
@@ -249,7 +246,7 @@ public class HomeFragment extends Fragment {
     private void ratioPieChart(){
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setExtraOffsets(20,10,20,5);
         pieChart.setEntryLabelColor(Color.BLACK);
 
         pieChart.animateX(500);
@@ -259,7 +256,8 @@ public class HomeFragment extends Fragment {
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(55f);
+        pieChart.setHoleRadius(42);
+        pieChart.setTransparentCircleRadius(52f);
         pieChart.getLegend().setWordWrapEnabled(true);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
@@ -282,10 +280,26 @@ public class HomeFragment extends Fragment {
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600")
                 ,ColorTemplate.rgb("#FF5C33")}));
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry entry, Highlight h) {
+                // Get the value and label of the selected slice
+                String value = String.valueOf(entry.getY());
+                String label = ((PieEntry) entry).getLabel();
 
+                Toast toast=Toast.makeText(getContext(),label+" "+value,Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
 
         PieData data = new PieData((dataSet));
-        data.setValueTextSize(15f);
+        data.setValueTextSize(12f);
         data.setValueTextColor(Color.BLACK);
 
 
