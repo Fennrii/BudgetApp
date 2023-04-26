@@ -121,6 +121,7 @@
     <string name="groc_expense_txt">Groceries</string>
     <string name="loan_expense_txt">Loans</string>
     <string name="edit_btn">Edit</string>
+    <string name="total_txt">Total Expenses:</string>
     //End
 
     //Nav Menu
