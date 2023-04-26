@@ -314,7 +314,7 @@ public class HomeFragment extends Fragment {
 
         subs = 0;
 
-        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,1); i++){
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,0); i++){
             Gson gson = new Gson();
             String json = sharedPref.getString(Keys.SUB+i, "");
             Subscription sub = gson.fromJson(json, Subscription.class);
