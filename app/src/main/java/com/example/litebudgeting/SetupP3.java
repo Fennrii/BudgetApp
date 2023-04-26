@@ -1,13 +1,13 @@
 package com.example.litebudgeting;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SetupP3 extends AppCompatActivity {
 
@@ -74,6 +74,6 @@ public class SetupP3 extends AppCompatActivity {
         prefEdit.apply();
 
 //      Go to next page
-        startActivity(new Intent(SetupP3.this, Subs.class));
+        startActivity(new Intent(SetupP3.this, AddSub.class));
     }
 }
