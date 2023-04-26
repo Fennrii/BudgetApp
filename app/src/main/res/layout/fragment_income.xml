@@ -7,15 +7,7 @@
     tools:context=".ui.income.IncomeFragment"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
+
 
     <TextView
         android:id="@+id/textIncome"
@@ -27,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/incomeScreentxt"
-        android:textColor="@color/white"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:textSize="20sp"

@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.expenses.ExpensesFragment">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
 
     <TextView
         android:id="@+id/text_notifications"
@@ -35,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/housing_expense_txt"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="30dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:id="@+id/housing_txt"
