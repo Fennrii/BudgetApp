@@ -7,15 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".SetupP1">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@android:drawable/bottom_bar"
-        tools:srcCompat="@android:drawable/bottom_bar"
-        app:tint="@color/teal_200" />
+
 
 
     <!--Page Title-->
@@ -23,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/finance_txt"
-        android:textColor="@color/white"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:textSize="20sp"
@@ -36,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/setup_page1"
-        android:textColor="@color/white"
+
         android:textSize="18sp"
         android:layout_marginTop="18dp"
         android:layout_marginEnd="20dp"

@@ -146,5 +146,10 @@
     <string name="updExpenseHint">Enter the new monthly cost</string>
     //End
 
+    //Notifications
+    <string name="notifi">Alert</string>
+    <string name="notifi_description">Your Budgetting Needs Attention!</string>
+    //End
+
 
 </resources>
