@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,9 +25,12 @@ import com.example.litebudgeting.Subscription;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.github.mikephil.charting.highlight.Highlight;
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
 import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
@@ -136,8 +140,10 @@ public class HomeFragment extends Fragment {
     private void itemizedPieChart(){
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setExtraOffsets(20,10,20,5);
         pieChart.setEntryLabelColor(Color.BLACK);
+        pieChart.setDrawEntryLabels(false);
+
 
         pieChart.setDragDecelerationFrictionCoef(0.95f);
         pieChart.animateX(500);
@@ -145,7 +151,8 @@ public class HomeFragment extends Fragment {
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(55f);
+        pieChart.setHoleRadius(42);
+        pieChart.setTransparentCircleRadius(52f);
         pieChart.getLegend().setWordWrapEnabled(true);
         pieChart.getLegend().setHorizontalAlignment(Legend.LegendHorizontalAlignment.LEFT);
 
@@ -197,10 +204,29 @@ public class HomeFragment extends Fragment {
                 ColorTemplate.rgb("#00e6ac"), ColorTemplate.rgb("#00e6e6"), ColorTemplate.rgb("#00ace6"),
                 ColorTemplate.rgb("#7300e6"), ColorTemplate.rgb("#ac00e6"), ColorTemplate.rgb("#e600e6"),
                 ColorTemplate.rgb("#e60073")}));
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry entry, Highlight h) {
+                // Get the value and label of the selected slice
+                String value = String.valueOf(entry.getY());
+                String label = ((PieEntry) entry).getLabel();
+
+                Toast toast=Toast.makeText(getContext(),label+" "+value,Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
+
+
 
 
         PieData data = new PieData((dataSet));
-        data.setValueTextSize(10f);
+        data.setValueTextSize(12f);
         data.setValueTextColor(Color.BLACK);
 
 
@@ -212,7 +238,7 @@ public class HomeFragment extends Fragment {
     private void ratioPieChart(){
         pieChart.setUsePercentValues(false);
         pieChart.getDescription().setEnabled(false);
-        pieChart.setExtraOffsets(5,10,5,5);
+        pieChart.setExtraOffsets(20,10,20,5);
         pieChart.setEntryLabelColor(Color.BLACK);
 
         pieChart.animateX(500);
@@ -222,7 +248,8 @@ public class HomeFragment extends Fragment {
 
         pieChart.setDrawHoleEnabled(true);
         pieChart.setHoleColor(Color.WHITE);
-        pieChart.setTransparentCircleRadius(55f);
+        pieChart.setHoleRadius(42);
+        pieChart.setTransparentCircleRadius(52f);
         pieChart.getLegend().setWordWrapEnabled(true);
 
         ArrayList<PieEntry> yValues = new ArrayList<>();
@@ -245,7 +272,23 @@ public class HomeFragment extends Fragment {
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600")
                 ,ColorTemplate.rgb("#FF5C33")}));
+        dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+        pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
+            @Override
+            public void onValueSelected(Entry entry, Highlight h) {
+                // Get the value and label of the selected slice
+                String value = String.valueOf(entry.getY());
+                String label = ((PieEntry) entry).getLabel();
 
+                Toast toast=Toast.makeText(getContext(),label+" "+value,Toast.LENGTH_SHORT);
+                toast.show();
+            }
+
+            @Override
+            public void onNothingSelected() {
+
+            }
+        });
 
         PieData data = new PieData((dataSet));
         data.setValueTextSize(10f);
@@ -271,7 +314,7 @@ public class HomeFragment extends Fragment {
 
         subs = 0;
 
-        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,1); i++){
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,0); i++){
             Gson gson = new Gson();
             String json = sharedPref.getString(Keys.SUB+i, "");
             Subscription sub = gson.fromJson(json, Subscription.class);
