@@ -54,7 +54,7 @@
         <item>Housing</item>
         <item>Water</item>
         <item>Electricity</item>
-        <item>AC</item>
+        <item>Air Conditioning</item>
         <item>Car Insurance</item>
         <item>Health Insurance</item>
         <item>Transportation</item>
@@ -141,6 +141,13 @@
     //Home Nav Page Text
     <string name="txtTotalAmount">Total Remaining this Month:</string>
     <string name="chartSwitchText">Change to ratio view</string>
+    <string name="update_expense">Update Expense</string>
+    <string name="updExpenseHint">Enter the new monthly cost</string>
+    //End
+
+    //Notifications
+    <string name="notifi">Alert</string>
+    <string name="notifi_description">Your Budgetting Needs Attention!</string>
     //End
 
 
