@@ -25,19 +25,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/total_txt"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:layout_marginStart="13dp"
-                android:layout_marginTop="15dp"
-                android:id="@+id/totalExpense_txt"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:text="@string/housing_expense_txt"
-                android:layout_below="@+id/totalExpense_txt"
                 android:layout_marginStart="15dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:id="@+id/housing_txt"
