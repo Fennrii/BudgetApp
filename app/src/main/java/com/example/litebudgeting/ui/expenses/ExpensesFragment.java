@@ -23,8 +23,12 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.litebudgeting.Keys;
+import com.example.litebudgeting.NavMain;
 import com.example.litebudgeting.R;
+import com.example.litebudgeting.Subs;
 import com.example.litebudgeting.databinding.FragmentExpensesBinding;
+
+import java.util.zip.Inflater;
 
 
 public class ExpensesFragment extends Fragment {
@@ -156,7 +160,7 @@ public class ExpensesFragment extends Fragment {
                 key = Keys.LOAN;
                 expCost = sharedPref.getFloat(key, 0F);
                 break;
-            default: // AddSub
+            default: // Subs
                 int subIndex = spinnerSelected-7;
 //                expName = "Housing";
 //                key = Keys.SUB+subIndex;
