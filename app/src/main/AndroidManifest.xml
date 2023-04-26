@@ -35,7 +35,7 @@
             android:name=".SetupP3"
             android:exported="false" />
         <activity
-            android:name=".Subs"
+            android:name=".AddSub"
             android:exported="false"/>
         <activity
             android:name=".MainActivity"
