@@ -20,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.litebudgeting.Income;
 import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.R;
+import com.example.litebudgeting.Subscription;
 import com.example.litebudgeting.databinding.FragmentHomeBinding;
 import com.github.mikephil.charting.charts.PieChart;
 import com.github.mikephil.charting.components.Legend;
@@ -74,7 +75,7 @@ public class HomeFragment extends Fragment {
         incomeText.setText("$"+remainingIncome);
 
         itemizedPieChart();
-//        ratioPieChart();
+
 
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
@@ -269,6 +270,13 @@ public class HomeFragment extends Fragment {
         }
 
         subs = 0;
+
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,1); i++){
+            Gson gson = new Gson();
+            String json = sharedPref.getString(Keys.SUB+i, "");
+            Subscription sub = gson.fromJson(json, Subscription.class);
+            subs+=sub.getSubCost();
+        }
 
         extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
         totalIncome += extraIncome;

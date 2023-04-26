@@ -106,7 +106,7 @@ public class AddJob extends AppCompatActivity {
             job1 = new Income(workName,is_salary, hourly, workHour, pay_period);
 
         }
-        int jobCount = sharedPref.getInt(Keys.JOB_COUNTER, 1);
+        int jobCount = sharedPref.getInt(Keys.JOB_COUNTER, 0);
         jobCount++;
         Gson gson = new Gson();
         String json = gson.toJson(job1);
