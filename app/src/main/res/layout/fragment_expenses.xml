@@ -15,7 +15,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnEdit"
+        android:id="@+id/scroller">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -245,29 +247,44 @@
                 android:id="@+id/loan_cost"
                 />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/edit_btn"
-                android:backgroundTint="@color/teal_200"
-                android:textSize="20sp"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="15dp"
-                android:layout_below="@id/loan_txt"
-                android:id="@+id/btnEdit"/>
 
-            <Spinner
-                android:id="@+id/list_expenses"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_below="@id/loan_cost"
-                android:layout_marginTop="30dp"
-                android:layout_marginRight="15dp"
-                android:layout_alignParentRight="true"
-                android:spinnerMode="dropdown"
-                android:backgroundTint="@color/teal_200"
-                android:contentDescription="@string/spinner_description"
-                android:tooltipText="@string/spinner_description"/>
+
         </RelativeLayout>
     </ScrollView>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_btn"
+        android:backgroundTint="@color/teal_200"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="15dp"
+        android:layout_above="@+id/nav_view"
+        android:id="@+id/btnEdit"/>
+
+    <Spinner
+        android:id="@+id/list_expenses"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/nav_view"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+        android:spinnerMode="dropdown"
+        android:backgroundTint="@color/teal_200"
+        android:contentDescription="@string/spinner_description"
+        android:tooltipText="@string/spinner_description"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground"
+        app:menu="@menu/bottom_nav_menu"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteY="675dp" />
 </RelativeLayout>

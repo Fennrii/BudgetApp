@@ -60,10 +60,7 @@ public class NavMain extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(NavMain.this, SetupP1.class);
                 startActivity(intent);
-                SharedPreferences sharedPref = getSharedPreferences(Keys.PREFS_KEY, MODE_PRIVATE);
-                SharedPreferences.Editor prefEdit = sharedPref.edit();
-                prefEdit.putBoolean(Keys.NO_FORM, false);
-                prefEdit.apply();
+
 
             }
         });

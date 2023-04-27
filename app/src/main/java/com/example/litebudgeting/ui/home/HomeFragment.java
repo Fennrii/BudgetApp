@@ -271,7 +271,7 @@ public class HomeFragment extends Fragment {
         dataSet.setSliceSpace(3f);
         dataSet.setSelectionShift(5f);
         dataSet.setColors(ColorTemplate.createColors(new int[]{ColorTemplate.rgb("#39E600")
-                ,ColorTemplate.rgb("#FF5C33")}));
+                ,ColorTemplate.rgb("#FF5C33"),ColorTemplate.rgb("#e60000")}));
         dataSet.setYValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
         pieChart.setOnChartValueSelectedListener(new OnChartValueSelectedListener() {
             @Override
@@ -303,9 +303,9 @@ public class HomeFragment extends Fragment {
     private void retrieveValues(){
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
 
-        totalIncome = 0;
+        totalIncome = sharedPref.getFloat(Keys.BANK_SAVINGS, 0F);
 
-        for (int i = 1; i <= sharedPref.getInt(Keys.JOB_COUNTER,1); i++){
+        for (int i = 1; i <= sharedPref.getInt(Keys.JOB_COUNTER,0); i++){
             Gson gson = new Gson();
             String json = sharedPref.getString(Keys.JOB+i, "");
             Income job = gson.fromJson(json, Income.class);
@@ -336,5 +336,6 @@ public class HomeFragment extends Fragment {
         needs = housing + water + elec + ac + car + health + transport + groc + loan;
 
         remainingIncome = totalIncome-needs;
+        remainingIncome = Math.round(remainingIncome/100F)*100F;
     }
 }
