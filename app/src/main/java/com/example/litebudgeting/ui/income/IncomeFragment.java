@@ -25,6 +25,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.litebudgeting.AddJob;
+import com.example.litebudgeting.AddSub;
 import com.example.litebudgeting.Income;
 import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.NavMain;
@@ -41,6 +42,7 @@ public class IncomeFragment extends Fragment {
     private Button btnAddJobs;
     private Button btnDeleteJobs;
     private Button btnAddIncome;
+    private Button btnAddSub;
     private Spinner spnJobs;
     private Income[] jobList;
     private int numJobs;
@@ -113,9 +115,7 @@ public class IncomeFragment extends Fragment {
                 }
                 onResume();
                 Toast.makeText(activity.getActivity(), "Job: \"" +jobName+ "\" Removed", Toast.LENGTH_SHORT).show();
-
             }
-
         });
         btnAddIncome = view.findViewById(R.id.btnAddIncome);
         btnAddIncome.setOnClickListener(new View.OnClickListener() {
@@ -134,6 +134,13 @@ public class IncomeFragment extends Fragment {
                 prefEdit.apply();
                 extraIncomeEdit.setText("");
                 Toast.makeText(activity.getActivity(), "Added $"+extraIncome+" to the Monthly Earnings ", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnAddSub = view.findViewById(R.id.btnAddSub);
+        btnAddSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AddSub.class));
             }
         });
 

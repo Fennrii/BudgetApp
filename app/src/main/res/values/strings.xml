@@ -149,6 +149,8 @@
     //Notifications
     <string name="notifi">Alert</string>
     <string name="notifi_description">Your Budgetting Needs Attention!</string>
+    <string name="btnAddSub">Add Subscription</string>
+    <string name="btnDeleteJob">Delete Job</string>
     //End
 
 

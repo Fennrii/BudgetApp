@@ -4,6 +4,7 @@ package com.example.litebudgeting.ui.expenses;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,9 +13,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.RelativeLayout.LayoutParams;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,7 +27,13 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.litebudgeting.Keys;
 import com.example.litebudgeting.R;
+import com.example.litebudgeting.Subscription;
 import com.example.litebudgeting.databinding.FragmentExpensesBinding;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class ExpensesFragment extends Fragment {
@@ -39,6 +48,7 @@ public class ExpensesFragment extends Fragment {
     private Context context;
     private Bundle savedInstanceState;
     private int expenses;
+    private List<String> expenseArray;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -80,6 +90,9 @@ public class ExpensesFragment extends Fragment {
 
         context = this.getContext();
 
+        addSubsToScroll();
+        fillExpenseList();
+
         spinner(root);
         Spinner spinner = root.findViewById(R.id.list_expenses);
         expenses =spinner.getSelectedItemPosition();
@@ -100,6 +113,24 @@ public class ExpensesFragment extends Fragment {
         });
 
     }
+    private void spinner(View root){
+        Spinner spinnerLanguages=root.findViewById(R.id.list_expenses);
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(context, android.R.layout.simple_spinner_item, expenseArray);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
+        spinnerLanguages.setAdapter(adapter);
+    }
+
+    private void fillExpenseList(){
+        String[] oldArray = getResources().getStringArray(R.array.expenses);
+        expenseArray = new ArrayList<>(Arrays.asList(oldArray));
+        SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER, 0); i++) {
+            String json = sharedPref.getString(Keys.SUB+i, "");
+            Subscription sub = gson.fromJson(json, Subscription.class);
+            expenseArray.add(sub.getSubName());
+        }
+    }
 
     private void updateExpense(){
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
@@ -109,7 +140,10 @@ public class ExpensesFragment extends Fragment {
         int spinnerSelected = spinner.getSelectedItemPosition();
         String key ="";
         String expName = "";
+        Subscription sub = null;
         float expCost = 0;
+        int subIndex = 0;
+        boolean isSub = false;
         switch (spinnerSelected){
             case 0: // Housing
                 expName = "Housing";
@@ -157,9 +191,15 @@ public class ExpensesFragment extends Fragment {
                 expCost = sharedPref.getFloat(key, 0F);
                 break;
             default: // Subs
-                int subIndex = spinnerSelected-7;
+                subIndex = spinnerSelected-8;
+                isSub=true;
+
 //                expName = "Housing";
-//                key = Keys.SUB+subIndex;
+                key = Keys.SUB+subIndex;
+                Gson gson = new Gson();
+                sub = gson.fromJson(sharedPref.getString(key,""), Subscription.class);
+                expCost=sub.getSubCost();
+                expName=sub.getSubName();
 //                expCost = sharedPref.getFloat(Keys.SUB+subIndex, 0F);
                 break;
         }
@@ -180,12 +220,51 @@ public class ExpensesFragment extends Fragment {
         Button btnUpdate = root.findViewById(R.id.btnUpdateExpense);
         String finalKey = key;
         String finalExpName = expName;
+        boolean finalIsSub = isSub;
+        Subscription finalSub = sub;
+        int finalSubIndex = subIndex;
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("onClickCalled", "FinalKey = "+finalKey);
                 Log.d("onClickCalled", "newExp = "+newExp);
-                prefEdit.putFloat(finalKey,Float.parseFloat(newExp.getText().toString()));
+                if (newExp.getText().toString().isEmpty()){
+                    newExp.setText(String.valueOf(0));
+                }
+                if (finalIsSub){
+                    if (Float.parseFloat(newExp.getText().toString())==0){
+                        int subCount = sharedPref.getInt(Keys.SUB_COUNTER,1);
+                        Log.d("onResumeCalled", "IncomeFragment Selected Spinner Index = "+ finalSubIndex);
+                        if (finalSubIndex == subCount){
+                            Log.d("onResumeCalled", finalSubIndex + " = " + subCount);
+                            prefEdit.putString(Keys.SUB+ finalSubIndex,"");
+                            prefEdit.putInt(Keys.SUB_COUNTER, subCount-1);
+                            prefEdit.apply();
+                        }
+                        else{
+                            int current = finalSubIndex;
+                            int next = finalSubIndex +1;
+                            while (current < subCount){
+                                prefEdit.putString(Keys.SUB+current,sharedPref.getString(Keys.SUB+next,""));
+                                current++;
+                                next++;
+                            }
+                            prefEdit.putString(Keys.SUB+current,"");
+                            prefEdit.putInt(Keys.SUB_COUNTER, subCount-1);
+                            prefEdit.apply();
+                        }
+                    }
+                    else{
+                        finalSub.setSubCost(Float.parseFloat(newExp.getText().toString()));
+                        Gson gson = new Gson();
+                        String json = gson.toJson(finalSub);
+                        prefEdit.putString(finalKey, json);
+                    }
+
+                }else{
+                    prefEdit.putFloat(finalKey,Float.parseFloat(newExp.getText().toString()));
+                }
+
                 prefEdit.apply();
                 Toast.makeText(context, "Updated Monthly cost for " + finalExpName, Toast.LENGTH_SHORT).show();
                 startActivity(new Intent(context, context.getClass()));
@@ -194,12 +273,68 @@ public class ExpensesFragment extends Fragment {
 
     }
 
-    private void spinner(View root){
-        Spinner spinnerLanguages=root.findViewById(R.id.list_expenses);
-        ArrayAdapter<CharSequence> adapter=ArrayAdapter.createFromResource(this.getActivity(), R.array.expenses, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
-        spinnerLanguages.setAdapter(adapter);
+    private void addSubsToScroll(){
+        SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
+        int lastID = R.id.loan_cost;
+        int lastCostID = R.id.loan_cost;
+        for (int i = 1; i <= sharedPref.getInt(Keys.SUB_COUNTER,0); i++){
+            Log.d("addSubsToScroll", "Loop index: "+i+" was called");
+            Log.d("addSubsToScroll","numOfSubs = "+sharedPref.getInt(Keys.SUB_COUNTER,0));
+            int newID = View.generateViewId();
+            int costID = View.generateViewId();
+            TextView expName = new TextView(context);
+            TextView expCost = new TextView(context);
+            Gson gson = new Gson();
+            LayoutParams nameParams = new LayoutParams(
+                    LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT
+            );
+            LayoutParams costParams = new LayoutParams(
+                    LayoutParams.WRAP_CONTENT,
+                    LayoutParams.WRAP_CONTENT
+            );
+
+
+            String json = sharedPref.getString(Keys.SUB+i, "");
+            Subscription sub = gson.fromJson(json, Subscription.class);
+
+            // Setup name view
+
+            nameParams.setMargins(40,70,0,0);
+            nameParams.addRule(RelativeLayout.BELOW, lastID);
+
+            expName.setText(sub.getSubName());
+            expName.setTypeface(null, Typeface.BOLD);
+            expName.setTextSize(18);
+            expName.setId(newID);
+
+            expName.setLayoutParams(nameParams);
+
+            RelativeLayout parentView = root.findViewById(R.id.expenses_layout);
+            parentView.addView(expName);
+
+            // Setup cost view
+
+            costParams.addRule(RelativeLayout.BELOW, lastCostID);
+            costParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            costParams.setMargins(0,70,40,0);
+
+            expCost.setText("$ "+sub.getSubCost());
+            expCost.setTypeface(null, Typeface.BOLD);
+            expCost.setTextSize(18);
+            expCost.setId(costID);
+
+            expCost.setLayoutParams(costParams);
+
+            RelativeLayout costParentView = root.findViewById(R.id.expenses_layout);
+            costParentView.addView(expCost);
+
+
+            lastID = newID;
+            lastCostID = costID;
+        }
     }
+
 
     @Override
     public void onDestroyView() {
