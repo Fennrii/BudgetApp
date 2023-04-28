@@ -31,6 +31,7 @@ import com.example.litebudgeting.Subscription;
 import com.example.litebudgeting.databinding.FragmentExpensesBinding;
 import com.google.gson.Gson;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -55,6 +56,7 @@ public class ExpensesFragment extends Fragment {
         this.container=container;
         this.inflater=inflater;
         this.savedInstanceState=savedInstanceState;
+        DecimalFormat df = new DecimalFormat("#.##");
         ExpensesViewModel expensesViewModel =
                 new ViewModelProvider(this).get(ExpensesViewModel.class);
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
@@ -62,31 +64,31 @@ public class ExpensesFragment extends Fragment {
         root = binding.getRoot();
         activity = this.getActivity();
         TextView housing = root.findViewById(R.id.housing_cost);
-        housing.setText("$ "+sharedPref.getFloat(Keys.HOUSING,0F));
+        housing.setText("$ "+Float.valueOf(df.format(sharedPref.getFloat(Keys.HOUSING,0F))));
 
         TextView water = root.findViewById(R.id.water_cost);
-        water.setText("$ "+sharedPref.getFloat(Keys.WATER,0F));
+        water.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.WATER,0F))));
 
         TextView electric = root.findViewById(R.id.electric_cost);
-        electric.setText("$ "+sharedPref.getFloat(Keys.ELECTRICITY,0F));
+        electric.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.ELECTRICITY,0F))));
 
         TextView AC = root.findViewById(R.id.AC_cost);
-        AC.setText("$ "+sharedPref.getFloat(Keys.AC,0F));
+        AC.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.AC,0F))));
 
         TextView car = root.findViewById(R.id.car_cost);
-        car.setText("$ "+sharedPref.getFloat(Keys.CAR,0F));
+        car.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.CAR,0F))));
 
         TextView health = root.findViewById(R.id.health_cost);
-        health.setText("$ "+sharedPref.getFloat(Keys.HEALTH,0F));
+        health.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.HEALTH,0F))));
 
         TextView transport = root.findViewById(R.id.transport_cost);
-        transport.setText("$ "+sharedPref.getFloat(Keys.TRANSPORT,0F));
+        transport.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.TRANSPORT,0F))));
 
         TextView groc = root.findViewById(R.id.groc_cost);
-        groc.setText("$ "+sharedPref.getFloat(Keys.GROCERIES,0F));
+        groc.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.GROCERIES,0F))));
 
         TextView loan = root.findViewById(R.id.loan_cost);
-        loan.setText("$ "+sharedPref.getFloat(Keys.LOAN,0F));
+        loan.setText("$ "+ Float.valueOf(df.format(sharedPref.getFloat(Keys.LOAN,0F))));
 
         context = this.getContext();
 
@@ -135,6 +137,7 @@ public class ExpensesFragment extends Fragment {
     private void updateExpense(){
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
         SharedPreferences.Editor prefEdit = sharedPref.edit();
+        DecimalFormat df = new DecimalFormat("#.##");
 
         Spinner spinner = root.findViewById(R.id.list_expenses);
         int spinnerSelected = spinner.getSelectedItemPosition();
@@ -203,6 +206,7 @@ public class ExpensesFragment extends Fragment {
 //                expCost = sharedPref.getFloat(Keys.SUB+subIndex, 0F);
                 break;
         }
+        expCost = Float.valueOf(df.format(expCost));
 
         otherBinding = inflater.inflate(R.layout.activity_edit_expense,container,false);
         binding.getRoot().removeAllViews();
