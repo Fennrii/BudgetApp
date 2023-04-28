@@ -35,6 +35,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.gson.Gson;
 
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class HomeFragment extends Fragment {
@@ -304,6 +305,7 @@ public class HomeFragment extends Fragment {
         SharedPreferences sharedPref = this.getActivity().getSharedPreferences(Keys.PREFS_KEY, Context.MODE_PRIVATE);
 
         totalIncome = sharedPref.getFloat(Keys.BANK_SAVINGS, 0F);
+        DecimalFormat df = new DecimalFormat("#.##");
 
         for (int i = 1; i <= sharedPref.getInt(Keys.JOB_COUNTER,0); i++){
             Gson gson = new Gson();
@@ -320,22 +322,22 @@ public class HomeFragment extends Fragment {
             Subscription sub = gson.fromJson(json, Subscription.class);
             subs+=sub.getSubCost();
         }
-
+        subs=Float.valueOf(df.format(subs));
         extraIncome = sharedPref.getFloat(Keys.EXTRA_INCOME, 0);
         totalIncome += extraIncome;
-        housing = sharedPref.getFloat(Keys.HOUSING, 0F);
-        water = sharedPref.getFloat(Keys.WATER, 0F);
-        elec = sharedPref.getFloat(Keys.ELECTRICITY, 0F);
-        ac = sharedPref.getFloat(Keys.AC, 0F);
-        car = sharedPref.getFloat(Keys.CAR, 0F);
-        health = sharedPref.getFloat(Keys.HEALTH, 0F);
-        transport = sharedPref.getFloat(Keys.TRANSPORT, 0F);
-        groc = sharedPref.getFloat(Keys.GROCERIES, 0F);
-        loan = sharedPref.getFloat(Keys.LOAN, 0F);
+        housing = Float.valueOf(df.format(sharedPref.getFloat(Keys.HOUSING, 0F)));
+        water = Float.valueOf(df.format(sharedPref.getFloat(Keys.WATER, 0F)));
+        elec = Float.valueOf(df.format(sharedPref.getFloat(Keys.ELECTRICITY, 0F)));
+        ac = Float.valueOf(df.format(sharedPref.getFloat(Keys.AC, 0F)));
+        car = Float.valueOf(df.format(sharedPref.getFloat(Keys.CAR, 0F)));
+        health = Float.valueOf(df.format(sharedPref.getFloat(Keys.HEALTH, 0F)));
+        transport = Float.valueOf(df.format(sharedPref.getFloat(Keys.TRANSPORT, 0F)));
+        groc = Float.valueOf(df.format(sharedPref.getFloat(Keys.GROCERIES, 0F)));
+        loan = Float.valueOf(df.format(sharedPref.getFloat(Keys.LOAN, 0F)));
 
-        needs = housing + water + elec + ac + car + health + transport + groc + loan;
+        needs = Float.valueOf(df.format(housing + water + elec + ac + car + health + transport + groc + loan));
 
-        remainingIncome = totalIncome-needs;
-        remainingIncome = Math.round(remainingIncome/100F)*100F;
+        remainingIncome = Float.valueOf(df.format(totalIncome-needs));
+
     }
 }

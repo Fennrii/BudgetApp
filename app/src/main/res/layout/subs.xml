@@ -76,7 +76,7 @@
         android:importantForAutofill="no"
         android:layout_centerHorizontal="true"
         android:hint="@string/empty_currency"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_marginTop="5dp"
         android:id="@+id/subCost_edit"
         />
